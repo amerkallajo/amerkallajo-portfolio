@@ -1,0 +1,26 @@
+# Portfolio Images Folder
+# =======================
+# 
+# TODO: Add portfolio images here, organized by category:
+# 
+# /product/
+#   - product-1.jpg
+#   - product-2.jpg
+#   - etc.
+# 
+# /graphic/
+#   - design-1.jpg
+#   - design-2.jpg
+#   - etc.
+# 
+# /web/
+#   - project-1.jpg
+#   - project-2.jpg
+#   - etc.
+# 
+# Image Guidelines:
+# - Use WebP format for best compression
+# - Provide multiple sizes for responsive images
+# - Optimize all images before adding
+# - Recommended dimensions: 800-1200px wide for gallery
+

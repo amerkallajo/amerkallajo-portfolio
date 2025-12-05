@@ -1,0 +1,103 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-5);
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.item {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background-color: var(--bg-elevated);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.item:hover {
+  transform: scale(1.03);
+  box-shadow: var(--shadow-lg), 0 0 20px rgba(0, 240, 255, 0.2);
+  border-color: var(--neon-cyan);
+}
+
+.item:focus-visible {
+  outline: 2px solid var(--neon-cyan);
+  outline-offset: 2px;
+}
+
+.imageWrapper {
+  position: absolute;
+  inset: 0;
+  background-color: var(--bg-subtle);
+}
+
+.imageWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.item:hover .imageWrapper img {
+  transform: scale(1.1);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--space-4);
+  background: linear-gradient(to top,
+      rgba(0, 0, 0, 0.9) 0%,
+      rgba(0, 0, 0, 0.5) 50%,
+      transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.item:hover .overlay {
+  opacity: 1;
+}
+
+.title {
+  font-family: var(--font-primary);
+  font-size: var(--text-h3);
+  color: var(--text-primary);
+  margin-bottom: var(--space-1);
+  transform: translateY(10px);
+  transition: transform 0.3s ease;
+}
+
+.item:hover .title {
+  transform: translateY(0);
+}
+
+.description {
+  font-size: var(--text-small);
+  color: var(--text-secondary);
+  transform: translateY(10px);
+  transition: transform 0.3s ease 0.05s;
+}
+
+.item:hover .description {
+  transform: translateY(0);
+}
+
+.emptyState {
+  grid-column: 1 / -1;
+  padding: 60px 20px;
+  text-align: center;
+  border: 1px dashed rgba(0, 240, 255, 0.3);
+  border-radius: 12px;
+  background: rgba(18, 18, 26, 0.5);
+}
+
+.emptyState p {
+  color: var(--text-muted);
+}

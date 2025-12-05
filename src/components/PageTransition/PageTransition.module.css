@@ -1,0 +1,20 @@
+/**
+ * PageTransition Styles
+ * ======================
+ * 
+ * Smooth page transitions with visual flourishes
+ */
+
+.pageTransition {
+  width: 100%;
+  min-height: 100vh;
+  will-change: opacity, transform;
+  position: relative;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .pageTransition {
+    will-change: auto;
+  }
+}

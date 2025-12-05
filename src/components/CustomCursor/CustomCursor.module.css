@@ -1,0 +1,70 @@
+.cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+    pointer-events: none;
+    z-index: 99999;
+    mix-blend-mode: difference;
+    box-shadow: 0 0 10px var(--glow-cyan);
+}
+
+.cursor.hovering {
+    background: var(--neon-cyan);
+    box-shadow: 0 0 20px var(--neon-cyan);
+}
+
+.cursor.clicking {
+    background: var(--neon-purple);
+}
+
+.cursorRing {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 240, 255, 0.5);
+    pointer-events: none;
+    z-index: 99998;
+}
+
+.cursorRing.ringHovering {
+    border-color: var(--neon-cyan);
+    border-width: 2px;
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+}
+
+.cursorGlow {
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 240, 255, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 99997;
+    filter: blur(10px);
+}
+
+/* Hide default cursor on desktop */
+@media (hover: hover) and (pointer: fine) {
+    :global(body) {
+        cursor: none !important;
+    }
+
+    :global(a),
+    :global(button),
+    :global([role="button"]) {
+        cursor: none !important;
+    }
+}
+
+/* Show default cursor on touch devices */
+@media (hover: none) or (pointer: coarse) {
+
+    .cursor,
+    .cursorRing,
+    .cursorGlow {
+        display: none;
+    }
+}

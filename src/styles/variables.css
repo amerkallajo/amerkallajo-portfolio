@@ -1,0 +1,83 @@
+:root {
+  /* Background Colors */
+  --bg-void: #000000;
+  --bg-primary: #0a0a0f;
+  --bg-elevated: #12121a;
+  --bg-subtle: #1a1a24;
+
+  /* Neon Accent Colors */
+  --neon-cyan: #00f0ff;
+  --neon-purple: #bf00ff;
+  --neon-magenta: #ff00aa;
+  --neon-blue: #4d4dff;
+
+  /* Glow Colors */
+  --glow-cyan: rgba(0, 240, 255, 0.5);
+  --glow-purple: rgba(191, 0, 255, 0.4);
+  --glow-magenta: rgba(255, 0, 170, 0.4);
+  --glow-soft: rgba(0, 240, 255, 0.15);
+
+  /* Gradients */
+  --gradient-cyber: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+  --gradient-void: radial-gradient(circle at center, var(--bg-elevated) 0%, var(--bg-void) 100%);
+  --gradient-glass: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+
+  /* Text Colors */
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0c0;
+  --text-muted: #606070;
+
+  /* Semantic Colors */
+  --success: #00ff88;
+  --error: #ff4466;
+  --warning: #ffaa00;
+
+  /* Typography */
+  --font-primary: 'Space Grotesk', 'Inter', -apple-system, sans-serif;
+  --font-secondary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Type Scale */
+  --text-hero: 3.5rem;
+  --text-h1: 2.5rem;
+  --text-h2: 1.75rem;
+  --text-h3: 1.25rem;
+  --text-body: 1rem;
+  --text-small: 0.875rem;
+  --text-button: 1rem;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-8: 48px;
+  --space-10: 64px;
+  --space-12: 80px;
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+
+  /* Glow Effects */
+  --glow-button: 0 0 20px var(--glow-cyan), 0 0 40px var(--glow-soft);
+  --glow-button-hover: 0 0 30px var(--glow-cyan), 0 0 60px var(--glow-cyan);
+  --glow-text: 0 0 10px var(--glow-cyan);
+}
+
+@media (max-width: 768px) {
+  :root {
+    --text-hero: 2.5rem;
+    --text-h1: 2rem;
+    --text-h2: 1.5rem;
+  }
+}

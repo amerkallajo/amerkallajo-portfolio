@@ -1,0 +1,192 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-4);
+  z-index: 1;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.branding {
+  margin-bottom: var(--space-10);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profilePic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: var(--space-6);
+  border: 2px solid var(--neon-cyan);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profilePic:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.5);
+}
+
+/* Gaming RGB Title Container - Optimized */
+.titleContainer {
+  position: relative;
+  padding: 1.5rem 3rem;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  margin-bottom: var(--space-4);
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+
+.titleContainer::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 22px;
+  padding: 3px;
+  background: linear-gradient(90deg,
+      #ff0080,
+      #00ffff,
+      #8000ff,
+      #ff0080);
+  background-size: 300% 100%;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: rgbBorder 4s linear infinite;
+  z-index: -1;
+}
+
+@keyframes rgbBorder {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 300% 50%;
+  }
+}
+
+.title {
+  font-family: var(--font-primary);
+  font-size: 5rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  position: relative;
+  display: inline-block;
+  text-transform: uppercase;
+
+  /* Solid white text */
+  color: #ffffff;
+  -webkit-text-fill-color: #ffffff;
+
+  /* RGB cycling text stroke/outline */
+  -webkit-text-stroke: 2px transparent;
+  background: linear-gradient(90deg,
+      #ff0080,
+      #ff8c00,
+      #00ffff,
+      #8000ff,
+      #ff0080);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  /* Paint order: stroke behind fill */
+  paint-order: stroke fill;
+
+  /* Animate the stroke colors */
+  animation: rgbStroke 4s linear infinite;
+
+  /* Subtle glow */
+  text-shadow:
+    0 0 20px rgba(0, 255, 255, 0.3),
+    0 0 40px rgba(128, 0, 255, 0.2);
+
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.title:hover {
+  transform: scale(1.03);
+  text-shadow:
+    0 0 30px rgba(0, 255, 255, 0.5),
+    0 0 60px rgba(128, 0, 255, 0.3);
+}
+
+@keyframes rgbStroke {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 300% 50%;
+  }
+}
+
+.subtitle {
+  font-size: var(--text-h2);
+  color: var(--neon-cyan);
+  margin-bottom: var(--space-5);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  text-shadow: 0 0 10px var(--glow-cyan);
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  padding: 0.5rem 1.5rem;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.subtitle:hover {
+  background: rgba(0, 240, 255, 0.1);
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.disciplines {
+  font-size: var(--text-body);
+  color: #ffffff;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  max-width: 600px;
+  border-top: 1px solid var(--neon-purple);
+  border-bottom: 1px solid var(--neon-purple);
+  padding: var(--space-4) 0;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+}
+
+.navigation {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-5);
+  max-width: 600px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .navigation {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    max-width: 300px;
+  }
+
+  .branding {
+    margin-bottom: var(--space-8);
+  }
+}
