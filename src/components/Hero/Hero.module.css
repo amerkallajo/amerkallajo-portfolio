@@ -180,6 +180,10 @@
 }
 
 @media (max-width: 768px) {
+  .hero {
+    padding: var(--space-3);
+  }
+
   .navigation {
     grid-template-columns: 1fr;
     gap: var(--space-4);
@@ -187,6 +191,79 @@
   }
 
   .branding {
-    margin-bottom: var(--space-8);
+    margin-bottom: var(--space-6);
+  }
+
+  .profilePic {
+    width: 100px;
+    height: 100px;
+    margin-bottom: var(--space-4);
+  }
+
+  .titleContainer {
+    padding: 1rem 1.5rem;
+    border-radius: 15px;
+    margin-bottom: var(--space-3);
+  }
+
+  .title {
+    font-size: 2.5rem;
+    letter-spacing: 0.03em;
+    -webkit-text-stroke: 1.5px transparent;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    letter-spacing: 0.15em;
+    padding: 0.4rem 1rem;
+    margin-bottom: var(--space-4);
+  }
+
+  .disciplines {
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    padding: var(--space-3) var(--space-2);
+    max-width: 90%;
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+  .hero {
+    padding: var(--space-2);
+  }
+
+  .profilePic {
+    width: 80px;
+    height: 80px;
+    margin-bottom: var(--space-3);
+  }
+
+  .titleContainer {
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+  }
+
+  .title {
+    font-size: 2rem;
+    letter-spacing: 0.02em;
+    -webkit-text-stroke: 1px transparent;
+  }
+
+  .subtitle {
+    font-size: 0.875rem;
+    letter-spacing: 0.12em;
+    padding: 0.3rem 0.8rem;
+  }
+
+  .disciplines {
+    font-size: 0.625rem;
+    letter-spacing: 0.06em;
+    padding: var(--space-2) var(--space-1);
+  }
+
+  .navigation {
+    max-width: 280px;
+    gap: var(--space-3);
   }
 }
