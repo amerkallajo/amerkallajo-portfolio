@@ -51,8 +51,8 @@ export const CONTACT_INFO = {
   },
   phone: {
     label: 'Call (Syria)',
-    number: '+963 968 325 292',
-    link: 'tel:+963968325292',
+    number: '+963 968 908 292',
+    link: 'tel:+963968908292',
   },
 };
 
