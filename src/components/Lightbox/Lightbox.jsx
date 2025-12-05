@@ -1,7 +1,29 @@
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import styles from './Lightbox.module.css';
 
 function Lightbox({ selectedImage, onClose }) {
+    const [imageLoaded, setImageLoaded] = useState(false);
+    const [imageError, setImageError] = useState(false);
+
+    // Reset states when selectedImage changes
+    useEffect(() => {
+        if (selectedImage) {
+            setImageLoaded(false);
+            setImageError(false);
+        }
+    }, [selectedImage]);
+
+    const handleImageLoad = () => {
+        setImageLoaded(true);
+        setImageError(false);
+    };
+
+    const handleImageError = () => {
+        setImageError(true);
+        setImageLoaded(false);
+    };
+
     return (
         <AnimatePresence>
             {selectedImage && (
@@ -19,7 +41,20 @@ function Lightbox({ selectedImage, onClose }) {
                         exit={{ scale: 0.8, opacity: 0 }}
                         onClick={(e) => e.stopPropagation()}
                     >
-                        <img src={selectedImage.image} alt={selectedImage.title} className={styles.image} />
+                        {!imageLoaded && !imageError && (
+                            <div className={styles.loading}>Loading...</div>
+                        )}
+                        {imageError && (
+                            <div className={styles.error}>Failed to load image</div>
+                        )}
+                        <img 
+                            src={selectedImage.image} 
+                            alt={selectedImage.title || 'Gallery image'} 
+                            className={styles.image}
+                            onLoad={handleImageLoad}
+                            onError={handleImageError}
+                            style={{ display: imageLoaded ? 'block' : 'none' }}
+                        />
                         <button className={styles.closeButton} onClick={onClose}>
                             ×
                         </button>
