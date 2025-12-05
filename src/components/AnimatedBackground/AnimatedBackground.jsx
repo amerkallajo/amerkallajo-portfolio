@@ -144,11 +144,11 @@ function AnimatedBackground() {
     const getIconSize = () => {
       const width = window.innerWidth;
       if (width <= 480) {
-        // Extra small mobile: 20-35px
-        return 20 + Math.random() * 15;
+        // Extra small mobile: 35-55px (increased for better coverage)
+        return 35 + Math.random() * 20;
       } else if (width <= 768) {
-        // Mobile/tablet: 30-50px
-        return 30 + Math.random() * 20;
+        // Mobile/tablet: 40-65px (increased for better coverage)
+        return 40 + Math.random() * 25;
       } else {
         // Desktop: 50-90px
         return 50 + Math.random() * 40;
