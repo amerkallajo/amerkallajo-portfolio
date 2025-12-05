@@ -200,14 +200,6 @@ function AnimatedBackground() {
         x: window.innerWidth + 30,
         y: window.innerHeight / 2
       });
-
-      // Clear existing bodies and restart with new sizes
-      const bodies = Composite.allBodies(engine.world);
-      bodies.forEach(body => {
-        if (!body.isStatic) {
-          Composite.remove(engine.world, body);
-        }
-      });
     };
 
     window.addEventListener('resize', handleResize);
