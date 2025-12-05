@@ -8,7 +8,12 @@ import styles from './ProductPage.module.css';
 
 function ProductPage() {
   const { title, description, items } = PAGE_CONTENT.product;
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(-1);
+
+  const handleItemClick = (item) => {
+    const index = items.findIndex((i) => i.id === item.id);
+    setSelectedIndex(index);
+  };
 
   return (
     <motion.main
@@ -38,10 +43,14 @@ function ProductPage() {
       </header>
 
       <div className={styles.galleryContainer}>
-        <GalleryGrid items={items} onItemClick={setSelectedImage} />
+        <GalleryGrid items={items} onItemClick={handleItemClick} />
       </div>
 
-      <Lightbox selectedImage={selectedImage} onClose={() => setSelectedImage(null)} />
+      <Lightbox 
+        images={items} 
+        selectedIndex={selectedIndex} 
+        onClose={() => setSelectedIndex(-1)} 
+      />
     </motion.main>
   );
 }
