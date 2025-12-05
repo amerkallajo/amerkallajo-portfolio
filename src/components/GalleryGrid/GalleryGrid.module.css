@@ -59,6 +59,7 @@
       transparent 100%);
   opacity: 0;
   transition: opacity 0.3s ease;
+  pointer-events: none;
 }
 
 .item:hover .overlay {

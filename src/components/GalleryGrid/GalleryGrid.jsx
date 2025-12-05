@@ -67,6 +67,14 @@ function GalleryItem({ item, onClick }) {
       variants: itemVariants,
       onClick: () => onClick?.(item),
       whileHover: { zIndex: 10 },
+      role: 'button',
+      tabIndex: 0,
+      onKeyDown: (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          onClick?.(item);
+        }
+      },
     };
 
   return (
