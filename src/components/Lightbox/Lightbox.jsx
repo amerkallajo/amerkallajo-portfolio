@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import styles from './Lightbox.module.css';
 
 function Lightbox({ images = [], selectedIndex = -1, onClose }) {
@@ -22,12 +23,18 @@ function Lightbox({ images = [], selectedIndex = -1, onClose }) {
     useEffect(() => {
         if (selectedIndex >= 0) {
             scrollYRef.current = window.scrollY;
+            
+            // Scroll to top first to reset any scroll position
+            window.scrollTo(0, 0);
+            
             document.body.style.position = 'fixed';
-            document.body.style.top = `-${scrollYRef.current}px`;
+            document.body.style.top = '0';
             document.body.style.left = '0';
             document.body.style.right = '0';
             document.body.style.width = '100%';
+            document.body.style.height = '100%';
             document.body.style.overflow = 'hidden';
+            document.documentElement.style.overflow = 'hidden';
             
             return () => {
                 document.body.style.position = '';
@@ -35,7 +42,9 @@ function Lightbox({ images = [], selectedIndex = -1, onClose }) {
                 document.body.style.left = '';
                 document.body.style.right = '';
                 document.body.style.width = '';
+                document.body.style.height = '';
                 document.body.style.overflow = '';
+                document.documentElement.style.overflow = '';
                 window.scrollTo(0, scrollYRef.current);
             };
         }
@@ -107,7 +116,7 @@ function Lightbox({ images = [], selectedIndex = -1, onClose }) {
 
     const currentImage = images[currentIndex];
 
-    return (
+    const lightboxContent = (
         <div className={styles.overlay}>
             {/* Close button */}
             <button className={styles.closeButton} onClick={onClose} aria-label="Close">
@@ -168,6 +177,9 @@ function Lightbox({ images = [], selectedIndex = -1, onClose }) {
             )}
         </div>
     );
+
+    // Use portal to render at document body level
+    return createPortal(lightboxContent, document.body);
 }
 
 export default Lightbox;

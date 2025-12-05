@@ -1,25 +1,28 @@
 .overlay {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    height: 100dvh;
-    background: rgba(0, 0, 0, 0.97);
-    z-index: 9999;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #000;
+    z-index: 99999;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     touch-action: none;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
 }
 
 .imageContainer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    position: relative;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -39,14 +42,12 @@
 
 .image {
     display: block;
-    max-width: 100%;
-    max-height: calc(100vh - 120px);
-    max-height: calc(100dvh - 120px);
+    max-width: calc(100vw - 100px);
+    max-height: calc(100vh - 140px);
     width: auto;
     height: auto;
     object-fit: contain;
     border-radius: 4px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
     user-select: none;
     -webkit-user-drag: none;
 }
@@ -145,12 +146,12 @@
 /* Mobile styles */
 @media (max-width: 768px) {
     .imageContainer {
-        padding: 55px 10px 90px;
+        padding: 50px 15px 80px;
     }
     
     .image {
-        max-height: calc(100vh - 150px);
-        max-height: calc(100dvh - 150px);
+        max-width: calc(100vw - 30px);
+        max-height: calc(100vh - 140px);
         border-radius: 2px;
     }
     
@@ -162,37 +163,9 @@
     }
     
     .navButton {
-        width: 40px;
-        height: 40px;
-        background: rgba(255, 255, 255, 0.15);
-    }
-    
-    .prevButton {
-        left: 8px;
-    }
-    
-    .nextButton {
-        right: 8px;
-    }
-    
-    .counter {
-        bottom: 12px;
-        font-size: 13px;
-        padding: 5px 12px;
-    }
-    
-    .title {
-        bottom: 45px;
-        font-size: 14px;
-        max-width: 70%;
-    }
-}
-
-/* Very small screens */
-@media (max-width: 400px) {
-    .navButton {
         width: 36px;
         height: 36px;
+        background: rgba(255, 255, 255, 0.2);
     }
     
     .prevButton {
@@ -201,5 +174,37 @@
     
     .nextButton {
         right: 5px;
+    }
+    
+    .counter {
+        bottom: 10px;
+        font-size: 12px;
+        padding: 4px 10px;
+    }
+    
+    .title {
+        bottom: 38px;
+        font-size: 13px;
+        max-width: 70%;
+    }
+}
+
+/* Very small screens */
+@media (max-width: 400px) {
+    .imageContainer {
+        padding: 45px 10px 75px;
+    }
+    
+    .navButton {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .prevButton {
+        left: 3px;
+    }
+    
+    .nextButton {
+        right: 3px;
     }
 }
