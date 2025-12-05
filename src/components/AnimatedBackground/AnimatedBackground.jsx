@@ -32,10 +32,10 @@ const ICONS = [
 const COLORS = ['#00f0ff', '#bf00ff', '#ff00aa', '#4d4dff'];
 
 // Helper to create texture URL from icon
-const createIconTexture = (Icon, color) => {
+const createIconTexture = (Icon, color, size = 64) => {
   const svgString = renderToStaticMarkup(
     <Icon
-      size={64}
+      size={size}
       stroke={color}
       strokeWidth={2}
       fill="rgba(255,255,255,0.1)"
@@ -140,6 +140,21 @@ function AnimatedBackground() {
     // Standard gravity for falling icons
     engine.world.gravity.y = 1.5;
 
+    // Calculate responsive icon sizes based on screen width
+    const getIconSize = () => {
+      const width = window.innerWidth;
+      if (width <= 480) {
+        // Extra small mobile: 20-35px
+        return 20 + Math.random() * 15;
+      } else if (width <= 768) {
+        // Mobile/tablet: 30-50px
+        return 30 + Math.random() * 20;
+      } else {
+        // Desktop: 50-90px
+        return 50 + Math.random() * 40;
+      }
+    };
+
     // Add bodies quickly to fill screen in ~5 seconds
     const interval = setInterval(() => {
       // Limit to 100 bodies for reasonable performance
@@ -147,7 +162,7 @@ function AnimatedBackground() {
 
       // Spawn 3 bodies per interval to fill faster
       for (let i = 0; i < 3; i++) {
-        const size = 50 + Math.random() * 40; // 50-90px
+        const size = getIconSize();
         const x = Math.random() * window.innerWidth;
         const y = -100 - (Math.random() * 300);
 
@@ -184,6 +199,14 @@ function AnimatedBackground() {
       Matter.Body.setPosition(rightWall, {
         x: window.innerWidth + 30,
         y: window.innerHeight / 2
+      });
+
+      // Clear existing bodies and restart with new sizes
+      const bodies = Composite.allBodies(engine.world);
+      bodies.forEach(body => {
+        if (!body.isStatic) {
+          Composite.remove(engine.world, body);
+        }
       });
     };
 
