@@ -77,7 +77,7 @@ function AnimatedBackground() {
     const engine = Engine.create();
     engineRef.current = engine;
 
-    // Create renderer
+    // Create renderer - canvas dimensions match viewport exactly
     const render = Render.create({
       element: container,
       engine: engine,
@@ -86,14 +86,10 @@ function AnimatedBackground() {
         height: viewport.height,
         background: 'transparent',
         wireframes: false,
-        pixelRatio: 1 // Keep 1:1 ratio for coordinate simplicity
+        pixelRatio: 1 // 1:1 ratio keeps physics coords = pixel coords
       }
     });
     renderRef.current = render;
-    
-    // Ensure canvas fills the container
-    render.canvas.style.width = '100%';
-    render.canvas.style.height = '100%';
 
     // Create boundaries (floor and walls)
     const wallOptions = {
@@ -237,22 +233,38 @@ function AnimatedBackground() {
     };
 
     window.addEventListener('resize', handleResize);
+    window.addEventListener('orientationchange', handleResize);
     
-    // Also listen to visualViewport resize for mobile browsers
+    // Also listen to visualViewport resize for mobile browsers (address bar show/hide)
     if (window.visualViewport) {
       window.visualViewport.addEventListener('resize', handleResize);
+      window.visualViewport.addEventListener('scroll', handleResize);
     }
     
-    // Trigger resize shortly after mount to handle any layout shifts
+    // On mobile, also listen to scroll as address bar changes can affect viewport
+    let scrollTimeout;
+    const handleScroll = () => {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(handleResize, 100);
+    };
+    window.addEventListener('scroll', handleScroll);
+    
+    // Trigger resize at various intervals to catch any layout changes
     setTimeout(handleResize, 50);
     setTimeout(handleResize, 200);
+    setTimeout(handleResize, 500);
+    setTimeout(handleResize, 1000);
 
     // Cleanup
     return () => {
       clearInterval(interval);
+      clearTimeout(scrollTimeout);
       window.removeEventListener('resize', handleResize);
+      window.removeEventListener('orientationchange', handleResize);
+      window.removeEventListener('scroll', handleScroll);
       if (window.visualViewport) {
         window.visualViewport.removeEventListener('resize', handleResize);
+        window.visualViewport.removeEventListener('scroll', handleResize);
       }
       Render.stop(render);
       Runner.stop(runner);
