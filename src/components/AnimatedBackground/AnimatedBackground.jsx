@@ -62,6 +62,24 @@ function AnimatedBackground() {
       MouseConstraint = Matter.MouseConstraint,
       Events = Matter.Events;
 
+    // Helper to get reliable viewport dimensions (mobile-friendly)
+    const getViewportSize = () => {
+      // Use visualViewport if available (better for mobile)
+      if (window.visualViewport) {
+        return {
+          width: window.visualViewport.width,
+          height: window.visualViewport.height
+        };
+      }
+      // Fallback to documentElement for most accurate dimensions
+      return {
+        width: document.documentElement.clientWidth || window.innerWidth,
+        height: document.documentElement.clientHeight || window.innerHeight
+      };
+    };
+
+    const viewport = getViewportSize();
+
     // Create engine
     const engine = Engine.create();
     engineRef.current = engine;
@@ -71,11 +89,11 @@ function AnimatedBackground() {
       element: sceneRef.current,
       engine: engine,
       options: {
-        width: window.innerWidth,
-        height: window.innerHeight,
+        width: viewport.width,
+        height: viewport.height,
         background: 'transparent',
         wireframes: false,
-        pixelRatio: window.devicePixelRatio
+        pixelRatio: Math.min(window.devicePixelRatio, 2) // Cap pixel ratio for performance
       }
     });
     renderRef.current = render;
@@ -86,27 +104,29 @@ function AnimatedBackground() {
       render: { fillStyle: 'transparent' }
     };
 
+    // Position ground below the visible viewport so icons settle at the very bottom edge
+    const groundThickness = 120;
     const ground = Bodies.rectangle(
-      window.innerWidth / 2,
-      window.innerHeight,
-      window.innerWidth,
-      60,
+      viewport.width / 2,
+      viewport.height + groundThickness / 2 - 10, // Slight offset up so icons are visible at bottom
+      viewport.width * 3,
+      groundThickness,
       wallOptions
     );
 
     const leftWall = Bodies.rectangle(
       -30,
-      window.innerHeight / 2,
+      viewport.height / 2,
       60,
-      window.innerHeight,
+      viewport.height * 3,
       wallOptions
     );
 
     const rightWall = Bodies.rectangle(
-      window.innerWidth + 30,
-      window.innerHeight / 2,
+      viewport.width + 30,
+      viewport.height / 2,
       60,
-      window.innerHeight,
+      viewport.height * 3,
       wallOptions
     );
 
@@ -142,7 +162,8 @@ function AnimatedBackground() {
 
     // Calculate responsive icon sizes based on screen width
     const getIconSize = () => {
-      const width = window.innerWidth;
+      const currentViewport = getViewportSize();
+      const width = currentViewport.width;
       if (width <= 480) {
         // Extra small mobile: 45-75px (larger for full coverage)
         return 45 + Math.random() * 30;
@@ -160,10 +181,12 @@ function AnimatedBackground() {
       // Limit to 150 bodies for better coverage
       if (Composite.allBodies(engine.world).length > 150) return;
 
+      const currentViewport = getViewportSize();
+      
       // Spawn 4 bodies per interval to fill faster
       for (let i = 0; i < 4; i++) {
         const size = getIconSize();
-        const x = Math.random() * window.innerWidth;
+        const x = Math.random() * currentViewport.width;
         const y = -100 - (Math.random() * 300);
 
         const texture = textures[Math.floor(Math.random() * textures.length)];
@@ -186,28 +209,46 @@ function AnimatedBackground() {
 
     // Handle resize
     const handleResize = () => {
-      render.canvas.width = window.innerWidth;
-      render.canvas.height = window.innerHeight;
+      const newViewport = getViewportSize();
+      
+      render.canvas.width = newViewport.width * Math.min(window.devicePixelRatio, 2);
+      render.canvas.height = newViewport.height * Math.min(window.devicePixelRatio, 2);
+      render.canvas.style.width = newViewport.width + 'px';
+      render.canvas.style.height = newViewport.height + 'px';
+      render.options.width = newViewport.width;
+      render.options.height = newViewport.height;
 
-      // Reposition ground
+      // Reposition ground at very bottom
       Matter.Body.setPosition(ground, {
-        x: window.innerWidth / 2,
-        y: window.innerHeight
+        x: newViewport.width / 2,
+        y: newViewport.height + groundThickness / 2 - 10
       });
 
       // Reposition walls
+      Matter.Body.setPosition(leftWall, {
+        x: -30,
+        y: newViewport.height / 2
+      });
       Matter.Body.setPosition(rightWall, {
-        x: window.innerWidth + 30,
-        y: window.innerHeight / 2
+        x: newViewport.width + 30,
+        y: newViewport.height / 2
       });
     };
 
     window.addEventListener('resize', handleResize);
+    
+    // Also listen to visualViewport resize for mobile browsers
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener('resize', handleResize);
+    }
 
     // Cleanup
     return () => {
       clearInterval(interval);
       window.removeEventListener('resize', handleResize);
+      if (window.visualViewport) {
+        window.visualViewport.removeEventListener('resize', handleResize);
+      }
       Render.stop(render);
       Runner.stop(runner);
       Composite.clear(engine.world);

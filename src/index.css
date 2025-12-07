@@ -23,11 +23,16 @@ html {
   scroll-behavior: smooth;
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
   line-height: 1.5;
   background-color: var(--bg-primary);
   color: var(--text-primary);
   min-height: 100vh;
+  min-height: 100dvh; /* Dynamic viewport height for mobile */
   overflow-x: hidden;
 }
 
@@ -60,6 +65,7 @@ h6 {
 #root {
   isolation: isolate;
   min-height: 100vh;
+  min-height: 100dvh; /* Dynamic viewport height for mobile */
   display: flex;
   flex-direction: column;
 }
