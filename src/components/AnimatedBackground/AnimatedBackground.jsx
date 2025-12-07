@@ -88,7 +88,7 @@ function AnimatedBackground() {
 
     const ground = Bodies.rectangle(
       window.innerWidth / 2,
-      window.innerHeight + 30,
+      window.innerHeight - 30,
       window.innerWidth,
       60,
       wallOptions
@@ -192,7 +192,7 @@ function AnimatedBackground() {
       // Reposition ground
       Matter.Body.setPosition(ground, {
         x: window.innerWidth / 2,
-        y: window.innerHeight + 30
+        y: window.innerHeight - 30
       });
 
       // Reposition walls
