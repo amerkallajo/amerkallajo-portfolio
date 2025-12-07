@@ -88,7 +88,7 @@ function AnimatedBackground() {
 
     const ground = Bodies.rectangle(
       window.innerWidth / 2,
-      window.innerHeight - 30,
+      window.innerHeight,
       window.innerWidth,
       60,
       wallOptions
@@ -157,11 +157,11 @@ function AnimatedBackground() {
 
     // Add bodies quickly to fill screen in ~5 seconds
     const interval = setInterval(() => {
-      // Limit to 100 bodies for reasonable performance
-      if (Composite.allBodies(engine.world).length > 100) return;
+      // Limit to 150 bodies for better coverage
+      if (Composite.allBodies(engine.world).length > 150) return;
 
-      // Spawn 3 bodies per interval to fill faster
-      for (let i = 0; i < 3; i++) {
+      // Spawn 4 bodies per interval to fill faster
+      for (let i = 0; i < 4; i++) {
         const size = getIconSize();
         const x = Math.random() * window.innerWidth;
         const y = -100 - (Math.random() * 300);
@@ -192,7 +192,7 @@ function AnimatedBackground() {
       // Reposition ground
       Matter.Body.setPosition(ground, {
         x: window.innerWidth / 2,
-        y: window.innerHeight - 30
+        y: window.innerHeight
       });
 
       // Reposition walls
