@@ -1,9 +1,21 @@
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import AnimatedBackground from '../../components/AnimatedBackground/AnimatedBackground';
 import Hero from '../../components/Hero/Hero';
 import styles from './HomePage.module.css';
 
 function HomePage() {
+  // Disable body scroll on home page for single-screen experience
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+    
+    return () => {
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    };
+  }, []);
+
   return (
     <motion.main
       className={styles.homePage}
