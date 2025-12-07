@@ -62,21 +62,14 @@ function AnimatedBackground() {
       MouseConstraint = Matter.MouseConstraint,
       Events = Matter.Events;
 
-    // Helper to get reliable viewport dimensions (mobile-friendly)
-    const getViewportSize = () => {
-      // Use visualViewport if available (better for mobile)
-      if (window.visualViewport) {
-        return {
-          width: window.visualViewport.width,
-          height: window.visualViewport.height
-        };
-      }
-      // Fallback to documentElement for most accurate dimensions
-      return {
-        width: document.documentElement.clientWidth || window.innerWidth,
-        height: document.documentElement.clientHeight || window.innerHeight
-      };
-    };
+    const container = sceneRef.current;
+    
+    // Use window dimensions directly - most reliable across devices
+    // On mobile, window.innerHeight gives the full viewport height
+    const getViewportSize = () => ({
+      width: window.innerWidth,
+      height: window.innerHeight
+    });
 
     const viewport = getViewportSize();
 
@@ -86,17 +79,21 @@ function AnimatedBackground() {
 
     // Create renderer
     const render = Render.create({
-      element: sceneRef.current,
+      element: container,
       engine: engine,
       options: {
         width: viewport.width,
         height: viewport.height,
         background: 'transparent',
         wireframes: false,
-        pixelRatio: Math.min(window.devicePixelRatio, 2) // Cap pixel ratio for performance
+        pixelRatio: 1 // Keep 1:1 ratio for coordinate simplicity
       }
     });
     renderRef.current = render;
+    
+    // Ensure canvas fills the container
+    render.canvas.style.width = '100%';
+    render.canvas.style.height = '100%';
 
     // Create boundaries (floor and walls)
     const wallOptions = {
@@ -104,11 +101,12 @@ function AnimatedBackground() {
       render: { fillStyle: 'transparent' }
     };
 
-    // Position ground below the visible viewport so icons settle at the very bottom edge
-    const groundThickness = 120;
+    // Ground positioned so its TOP edge is at the bottom of viewport
+    // This means icons will stack starting from the very bottom
+    const groundThickness = 100;
     const ground = Bodies.rectangle(
       viewport.width / 2,
-      viewport.height + groundThickness / 2 - 10, // Slight offset up so icons are visible at bottom
+      viewport.height + groundThickness / 2,
       viewport.width * 3,
       groundThickness,
       wallOptions
@@ -207,21 +205,24 @@ function AnimatedBackground() {
       }
     }, 100); // Spawn every 100ms (fast)
 
-    // Handle resize
+    // Handle resize - update physics world to match new viewport
     const handleResize = () => {
       const newViewport = getViewportSize();
       
-      render.canvas.width = newViewport.width * Math.min(window.devicePixelRatio, 2);
-      render.canvas.height = newViewport.height * Math.min(window.devicePixelRatio, 2);
-      render.canvas.style.width = newViewport.width + 'px';
-      render.canvas.style.height = newViewport.height + 'px';
+      // Update Matter.js render bounds
+      render.bounds.max.x = newViewport.width;
+      render.bounds.max.y = newViewport.height;
       render.options.width = newViewport.width;
       render.options.height = newViewport.height;
+      
+      // Update canvas dimensions
+      render.canvas.width = newViewport.width;
+      render.canvas.height = newViewport.height;
 
       // Reposition ground at very bottom
       Matter.Body.setPosition(ground, {
         x: newViewport.width / 2,
-        y: newViewport.height + groundThickness / 2 - 10
+        y: newViewport.height + groundThickness / 2
       });
 
       // Reposition walls
@@ -241,6 +242,10 @@ function AnimatedBackground() {
     if (window.visualViewport) {
       window.visualViewport.addEventListener('resize', handleResize);
     }
+    
+    // Trigger resize shortly after mount to handle any layout shifts
+    setTimeout(handleResize, 50);
+    setTimeout(handleResize, 200);
 
     // Cleanup
     return () => {
