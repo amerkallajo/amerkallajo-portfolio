@@ -198,8 +198,8 @@
   }
 
   .profilePic {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     margin-bottom: var(--space-3);
   }
 
@@ -241,8 +241,8 @@
   }
 
   .profilePic {
-    width: 70px;
-    height: 70px;
+    width: 90px;
+    height: 90px;
     margin-bottom: var(--space-2);
   }
 
@@ -288,8 +288,8 @@
   }
   
   .profilePic {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     margin-bottom: var(--space-2);
   }
   
