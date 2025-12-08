@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import NavButton from '../NavButton/NavButton';
+import ContactSection from '../ContactSection/ContactSection';
 import { NAV_LINKS, PAGE_CONTENT } from '../../utils/constants';
 import styles from './Hero.module.css';
 
@@ -65,6 +66,8 @@ function Hero() {
           </motion.div>
         ))}
       </motion.nav>
+
+      <ContactSection />
     </motion.section>
   );
 }

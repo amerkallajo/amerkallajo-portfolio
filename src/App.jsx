@@ -6,7 +6,7 @@ import PageTransition from './components/PageTransition/PageTransition';
 import HomePage from './pages/HomePage/HomePage';
 import ProductPage from './pages/ProductPage/ProductPage';
 import WebPage from './pages/WebPage/WebPage';
-import ContactPage from './pages/ContactPage/ContactPage';
+
 
 function App() {
   const location = useLocation();
@@ -39,14 +39,7 @@ function App() {
               </PageTransition>
             }
           />
-          <Route
-            path="/contact"
-            element={
-              <PageTransition>
-                <ContactPage />
-              </PageTransition>
-            }
-          />
+
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </AnimatePresence>

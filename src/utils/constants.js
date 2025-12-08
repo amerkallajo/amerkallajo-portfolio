@@ -32,11 +32,6 @@ export const NAV_LINKS = [
     label: 'Web Design',
     path: '/web',
   },
-  {
-    id: 'contact',
-    label: 'Contact',
-    path: '/contact',
-  },
 ];
 
 // ================================
