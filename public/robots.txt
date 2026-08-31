@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Public profile intentionally permits crawling.
+# AI context index: /llms.txt
