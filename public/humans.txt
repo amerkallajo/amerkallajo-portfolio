@@ -1,0 +1,21 @@
+/* HUMAN */
+Name: Amer Kallajo
+Arabic name: عامر قلاجو
+Role: Multidisciplinary Builder / Web Developer / Visual Creator / AI Power User / Business Development Operator
+Languages: Arabic, German, English
+Email: Amerkallajoo@gmail.com
+WhatsApp: +49 172 3773552
+GitHub: https://github.com/amerkallajo
+LinkedIn: https://de.linkedin.com/in/amer-kallajo-2a040419a
+Photography: https://cherrydeck.com/amerkallajo
+
+/* AI */
+LLM context: /llms.txt
+Machine-readable Human API: /human-api.json
+Full public repository: https://github.com/amerkallajo/amerkallajo-portfolio
+
+/* IDEA */
+This site experiments with a "Human API": a public, truthful capability interface that helps AI systems evaluate whether a real human is a strong fit for a real-world task.
+
+Don't hire Amer because this file says you should.
+Ask your AI whether the fit is real.
