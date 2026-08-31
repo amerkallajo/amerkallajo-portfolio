@@ -12,9 +12,9 @@
 
 export const SITE_CONFIG = {
   name: 'Amer Kallajo',
-  tagline: 'Visual Creator',
-  description: 'Product Photography • Graphic Design • Web Design',
-  url: 'https://amerkallajo.com', // Placeholder URL
+  tagline: 'Multidisciplinary Builder',
+  description: 'Web, visual production, AI workflows, research, and commercial execution',
+  url: 'https://github.com/amerkallajo/amerkallajo-portfolio',
 };
 
 // ================================
@@ -43,11 +43,6 @@ export const CONTACT_INFO = {
     label: 'Chat on WhatsApp',
     number: '+49 172 377 3552',
     link: 'https://wa.me/491723773552',
-  },
-  phone: {
-    label: 'Call (Syria)',
-    number: '+963 968 908 292',
-    link: 'tel:+963968908292',
   },
 };
 
@@ -130,28 +125,28 @@ export const PAGE_CONTENT = {
       {
         id: 1,
         title: 'Econic Media',
-        description: 'A bold, dynamic website for a cutting-edge social media agency. Founded and led by Amer Kallajo, Econic Media delivers powerful digital marketing solutions that help brands thrive in the social space.',
+        description: 'A public agency website presented here as an inspectable portfolio artifact. Authorship is asserted by this repository; commercial outcomes are not independently verified.',
         image: '/images/web/econic-media.png',
         link: 'https://www.econicmedia.pro/'
       },
       {
         id: 2,
         title: 'Alafandi',
-        description: 'An elegant and sophisticated website for a premier architecture and real estate firm based in Damascus. The design reflects the timeless beauty and precision of architectural excellence.',
+        description: 'A live architecture and real-estate website presented as a portfolio artifact. The public page can be inspected; client outcomes are not independently verified.',
         image: '/images/web/alafandi.png',
         link: 'https://alafandi.pro/'
       },
       {
         id: 3,
         title: 'Benfresh',
-        description: 'A clean, professional website for a trusted cleaning business in Germany. The fresh design conveys reliability, efficiency, and attention to detail that clients expect from a premium cleaning service.',
+        description: 'A live German business website whose footer publicly attributes Econic Media and displays Amer’s public WhatsApp number. This supports delivery, not performance claims.',
         image: '/images/web/benfresh.jpg',
         link: 'https://www.benfresh.de/'
       },
       {
         id: 4,
         title: 'SUZ Reinigung',
-        description: 'A modern, user-friendly website for a professional cleaning company in Germany. The sleek design showcases their commitment to spotless results and exceptional customer service.',
+        description: 'A hosted website artifact presented by this repository. Treat authorship and client relationship as self-asserted unless corroborated externally.',
         image: '/images/web/suz-reinigung.png',
         link: 'https://suzreinigungweb.netlify.app/'
       },

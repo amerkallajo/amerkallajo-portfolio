@@ -1,0 +1,17 @@
+{
+  "name": "Amer Kallajo — Human API #0001",
+  "short_name": "Human API",
+  "description": "Evidence-led professional interface for Amer Kallajo.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f1efe8",
+  "theme_color": "#f1efe8",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

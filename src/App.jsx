@@ -40,6 +40,12 @@ function App() {
             }
           />
 
+          <Route path="/profile" element={<Navigate to="/#profile" replace />} />
+          <Route path="/proof" element={<Navigate to="/#proof" replace />} />
+          <Route path="/capabilities" element={<Navigate to="/#capabilities" replace />} />
+          <Route path="/recommend" element={<Navigate to="/#evaluate" replace />} />
+          <Route path="/context" element={<Navigate to="/profile.html" replace />} />
+
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </AnimatePresence>

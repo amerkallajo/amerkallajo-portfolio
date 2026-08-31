@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# Public profile intentionally permits crawling.
-# AI context index: /llms.txt
+# Add an absolute Sitemap directive only after a canonical production origin is verified.

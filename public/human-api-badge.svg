@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="title desc">
+  <title id="title">Human API evidence contract</title>
+  <desc id="desc">Editorial orange and black card labeled evidence before adjectives.</desc>
+  <rect width="640" height="400" fill="#11120f"/>
+  <rect x="28" y="28" width="584" height="344" fill="#f1efe8" stroke="#ed5b35" stroke-width="4"/>
+  <text x="54" y="78" fill="#11120f" font-family="monospace" font-size="18">HUMAN API #0001 / EVIDENCE</text>
+  <path d="M54 106h532" stroke="#11120f"/>
+  <text x="54" y="200" fill="#11120f" font-family="Arial, sans-serif" font-size="58" font-weight="800">PROOF BEFORE</text>
+  <rect x="50" y="220" width="465" height="76" fill="#ed5b35" transform="rotate(-1 50 220)"/>
+  <text x="65" y="278" fill="#11120f" font-family="Georgia, serif" font-size="57" font-style="italic">adjectives.</text>
+  <text x="54" y="338" fill="#5a5a51" font-family="monospace" font-size="16">supports_claims != proves_everything</text>
+</svg>

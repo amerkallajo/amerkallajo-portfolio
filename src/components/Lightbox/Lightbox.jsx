@@ -48,13 +48,27 @@ function Lightbox({ images = [], selectedIndex = -1, onClose }) {
                 window.scrollTo(0, scrollYRef.current);
             };
         }
-    }, [selectedIndex >= 0]);
+    }, [selectedIndex]);
+
+    const goToPrevious = useCallback(() => {
+        if (isAnimating) return;
+        setIsAnimating(true);
+        setCurrentIndex((prev) => (prev > 0 ? prev - 1 : images.length - 1));
+        setTimeout(() => setIsAnimating(false), 300);
+    }, [images.length, isAnimating]);
+
+    const goToNext = useCallback(() => {
+        if (isAnimating) return;
+        setIsAnimating(true);
+        setCurrentIndex((prev) => (prev < images.length - 1 ? prev + 1 : 0));
+        setTimeout(() => setIsAnimating(false), 300);
+    }, [images.length, isAnimating]);
 
     // Keyboard navigation
     useEffect(() => {
         const handleKeyDown = (e) => {
             if (selectedIndex < 0) return;
-            
+
             switch (e.key) {
                 case 'ArrowLeft':
                     goToPrevious();
@@ -72,21 +86,7 @@ function Lightbox({ images = [], selectedIndex = -1, onClose }) {
 
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
-    }, [selectedIndex, currentIndex, images.length]);
-
-    const goToPrevious = useCallback(() => {
-        if (isAnimating) return;
-        setIsAnimating(true);
-        setCurrentIndex((prev) => (prev > 0 ? prev - 1 : images.length - 1));
-        setTimeout(() => setIsAnimating(false), 300);
-    }, [images.length, isAnimating]);
-
-    const goToNext = useCallback(() => {
-        if (isAnimating) return;
-        setIsAnimating(true);
-        setCurrentIndex((prev) => (prev < images.length - 1 ? prev + 1 : 0));
-        setTimeout(() => setIsAnimating(false), 300);
-    }, [images.length, isAnimating]);
+    }, [selectedIndex, goToPrevious, goToNext, onClose]);
 
     // Touch handlers for swipe
     const onTouchStart = (e) => {

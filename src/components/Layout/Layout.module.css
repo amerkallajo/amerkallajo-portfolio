@@ -17,16 +17,16 @@
   top: -100px;
   left: 50%;
   transform: translateX(-50%);
-  background: var(--bg-elevated);
-  color: var(--neon-cyan);
-  padding: var(--space-3) var(--space-5);
-  border: 1px solid var(--neon-cyan);
-  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  background: #11120f;
+  color: #f1efe8;
+  padding: 12px 20px;
+  border: 1px solid #ed5b35;
+  border-radius: 0;
   z-index: 9999;
   transition: top 0.3s ease;
   text-decoration: none;
   font-weight: 600;
-  box-shadow: var(--glow-button);
+  box-shadow: 4px 4px 0 #ed5b35;
 }
 
 .skipLink:focus {
