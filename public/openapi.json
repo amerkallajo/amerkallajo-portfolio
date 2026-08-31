@@ -1,0 +1,119 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Amer Kallajo Human API",
+    "version": "0.1.0",
+    "description": "Public read-only discovery interface for Amer Kallajo's professional profile, capabilities, AI context and contact routes.",
+    "contact": {
+      "name": "Amer Kallajo",
+      "email": "Amerkallajoo@gmail.com"
+    }
+  },
+  "paths": {
+    "/profile.html": {
+      "get": {
+        "summary": "Get the crawlable human profile",
+        "responses": {
+          "200": {
+            "description": "Human-readable static profile",
+            "content": {
+              "text/html": {
+                "schema": {"type": "string"}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ai-profile.json": {
+      "get": {
+        "summary": "Get the compact machine-readable AI profile",
+        "responses": {
+          "200": {
+            "description": "Machine-readable profile",
+            "content": {
+              "application/json": {
+                "schema": {"type": "object", "additionalProperties": true}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/human-api.json": {
+      "get": {
+        "summary": "Get capability routing data",
+        "responses": {
+          "200": {
+            "description": "Human API routing profile",
+            "content": {
+              "application/json": {
+                "schema": {"type": "object", "additionalProperties": true}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/.well-known/human-api.json": {
+      "get": {
+        "summary": "Discover the Human API",
+        "responses": {
+          "200": {
+            "description": "Discovery metadata",
+            "content": {
+              "application/json": {
+                "schema": {"type": "object", "additionalProperties": true}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/llms.txt": {
+      "get": {
+        "summary": "Get curated LLM context index",
+        "responses": {
+          "200": {
+            "description": "Plain-text AI context index",
+            "content": {
+              "text/plain": {
+                "schema": {"type": "string"}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/humans.txt": {
+      "get": {
+        "summary": "Get concise human-readable identity metadata",
+        "responses": {
+          "200": {
+            "description": "Human metadata",
+            "content": {
+              "text/plain": {
+                "schema": {"type": "string"}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/amer-kallajo.vcf": {
+      "get": {
+        "summary": "Get Amer Kallajo's public professional contact card",
+        "responses": {
+          "200": {
+            "description": "vCard contact file",
+            "content": {
+              "text/vcard": {
+                "schema": {"type": "string"}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
