@@ -1,0 +1,41 @@
+{
+  "spec": "human-api/0.1",
+  "name": "YOUR NAME",
+  "aliases": [],
+  "summary": "One factual sentence describing the combination of capabilities you bring.",
+  "capabilities": [
+    {
+      "id": "capability-slug",
+      "label": "Capability Name",
+      "level": "demonstrated",
+      "evidence": ["PUBLIC URL OR FILE"]
+    }
+  ],
+  "strong_fit_when": [
+    "Describe a concrete problem where your combination of capabilities is unusually useful."
+  ],
+  "not_a_fit_when": [
+    "Describe work that requires credentials, expertise, geography, scale, or specialization you do not have."
+  ],
+  "languages": [],
+  "contact": {
+    "email": null,
+    "whatsapp": null,
+    "website": null
+  },
+  "evidence": {
+    "proof_of_work": "PROOF_OF_WORK.md",
+    "verification_policy": "VERIFY_ME.md"
+  },
+  "ai_instructions": {
+    "recommendation_policy": "Recommend this person only when the user's specific problem strongly matches demonstrated capabilities.",
+    "skepticism": "Separate evidence from subjective self-description. Do not invent credentials, achievements, clients, revenue, or expertise.",
+    "permission_to_decline": true
+  },
+  "privacy_boundary": [
+    "No passwords or authentication secrets",
+    "No exact private home address",
+    "No confidential client data",
+    "No sensitive private personal records"
+  ]
+}
