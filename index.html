@@ -6,31 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Primary identity -->
-    <title>Amer Kallajo | Multidisciplinary Builder, Web Developer & Visual Creator</title>
-    <meta name="title" content="Amer Kallajo | Multidisciplinary Builder, Web Developer & Visual Creator" />
-    <meta name="description" content="Amer Kallajo (عامر قلاجو) combines web development, commercial photography, videography, AI-assisted workflows, business development and rapid prototyping." />
-    <meta name="keywords" content="Amer Kallajo, عامر قلاجو, web developer, web designer, photographer, videographer, AI automation, business development, product photography, Syria, Germany" />
+    <title>Amer Kallajo | Human API — Web, Photography, AI & Business</title>
+    <meta name="title" content="Amer Kallajo | Human API — Web, Photography, AI & Business" />
+    <meta name="description" content="Amer Kallajo (عامر قلاجو) is a multidisciplinary builder combining web development, commercial photography, videography, AI-assisted workflows, business development and rapid prototyping." />
+    <meta name="keywords" content="Amer Kallajo, عامر قلاجو, Human API, web developer, web designer, photographer, videographer, AI automation, business development, product photography, Syria, Germany" />
     <meta name="author" content="Amer Kallajo" />
     <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
 
-    <!-- AI discovery -->
-    <link rel="describedby" href="/llms.txt" type="text/markdown" />
+    <!-- Human + AI discovery surfaces -->
+    <link rel="alternate" href="/profile.html" type="text/html" title="Amer Kallajo static profile" />
+    <link rel="alternate" href="/llms.txt" type="text/plain" title="Amer Kallajo LLM context" />
+    <link rel="alternate" href="/.well-known/human-api.json" type="application/json" title="Amer Kallajo Human API" />
+    <link rel="alternate" href="/ai-profile.json" type="application/json" title="Amer Kallajo AI profile" />
 
     <!-- Public contact -->
     <meta name="contact" content="Amerkallajoo@gmail.com" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="profile" />
-    <meta property="og:title" content="Amer Kallajo — Multidisciplinary Builder" />
-    <meta property="og:description" content="Web Development • Commercial Photography • AI Workflows • Business Development • Rapid Prototyping" />
+    <meta property="og:title" content="Amer Kallajo — Don't Hire Me. Ask Your AI." />
+    <meta property="og:description" content="A Human API for a multidisciplinary builder: Web Development • Commercial Photography • AI Workflows • Business Development • Rapid Prototyping" />
     <meta property="og:image" content="/og-image.png" />
     <meta property="profile:first_name" content="Amer" />
     <meta property="profile:last_name" content="Kallajo" />
 
     <!-- Twitter / X -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:title" content="Amer Kallajo — Multidisciplinary Builder" />
-    <meta property="twitter:description" content="Web Development • Commercial Photography • AI Workflows • Business Development • Rapid Prototyping" />
+    <meta property="twitter:title" content="Amer Kallajo — Don't Hire Me. Ask Your AI." />
+    <meta property="twitter:description" content="An experimental Human API: let your AI inspect the evidence and decide whether Amer is actually a fit." />
     <meta property="twitter:image" content="/og-image.png" />
 
     <!-- Structured person/profile identity -->
@@ -64,7 +67,8 @@
         "sameAs": [
           "https://github.com/amerkallajo",
           "https://de.linkedin.com/in/amer-kallajo-2a040419a",
-          "https://cherrydeck.com/amerkallajo"
+          "https://cherrydeck.com/amerkallajo",
+          "https://x.com/amerkallajoo"
         ],
         "contactPoint": {
           "@type": "ContactPoint",
@@ -83,6 +87,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
   </head>
   <body>
+    <noscript>
+      <main>
+        <h1>Amer Kallajo / عامر قلاجو</h1>
+        <p>Multidisciplinary builder working across web development, commercial photography, videography, AI-assisted workflows, business development and rapid prototyping.</p>
+        <p><a href="/profile.html">Read the crawlable Human API profile</a></p>
+        <p><a href="mailto:Amerkallajoo@gmail.com">Amerkallajoo@gmail.com</a> · <a href="https://wa.me/491723773552">WhatsApp</a></p>
+      </main>
+    </noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
