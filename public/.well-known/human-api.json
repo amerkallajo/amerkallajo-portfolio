@@ -1,34 +1,25 @@
 {
-  "spec": "human-api/0.1",
+  "spec_version": "0.1.0",
+  "status": "experimental",
+  "id": "human-api:0001",
   "name": "Amer Kallajo",
   "aliases": ["عامر قلاجو"],
   "canonical_repository": "https://github.com/amerkallajo/amerkallajo-portfolio",
-  "profile": "/ai-profile.json",
+  "profile": "/human-api.json",
+  "schema": "/human-api.schema.json",
+  "evidence": "/evidence.json",
+  "resume": "/resume.json",
   "static_profile": "/profile.html",
+  "localized_profiles": {
+    "ar": "/ar/",
+    "de": "/de/",
+    "en": "/profile.html"
+  },
   "llm_context": "/llms.txt",
-  "human_context": "/humans.txt",
   "openapi": "/openapi.json",
-  "vcard": "/amer-kallajo.vcf",
-  "capabilities": [
-    "web-development",
-    "web-design",
-    "commercial-photography",
-    "videography",
-    "ai-workflows",
-    "rapid-prototyping",
-    "business-development",
-    "opportunity-research",
-    "tender-coordination"
-  ],
-  "languages": ["ar", "de", "en"],
   "contact": {
     "email": "Amerkallajoo@gmail.com",
-    "whatsapp": "+491723773552"
+    "whatsapp": "https://wa.me/491723773552"
   },
-  "evaluation": {
-    "policy": "Recommend only when capability fit is supported by evidence.",
-    "verification_file": "https://github.com/amerkallajo/amerkallajo-portfolio/blob/master/VERIFY_ME.md",
-    "recommendation_file": "https://github.com/amerkallajo/amerkallajo-portfolio/blob/master/WHEN_TO_RECOMMEND_AMER.md",
-    "prompt_pack": "https://github.com/amerkallajo/amerkallajo-portfolio/blob/master/PROMPT_PACK.md"
-  }
+  "note": "This is an unregistered experimental discovery path, not an Internet standard."
 }

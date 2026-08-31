@@ -1,118 +1,72 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "Amer Kallajo Human API",
+    "title": "Amer Kallajo Human API resources",
     "version": "0.1.0",
-    "description": "Public read-only discovery interface for Amer Kallajo's professional profile, capabilities, AI context and contact routes.",
+    "description": "A static, read-only map of public Human API files. Capability routes in the profile are semantic routing labels, not executable HTTP operations.",
     "contact": {
       "name": "Amer Kallajo",
       "email": "Amerkallajoo@gmail.com"
     }
   },
+  "servers": [{ "url": "/" }],
   "paths": {
-    "/profile.html": {
+    "/human-api.json": {
       "get": {
-        "summary": "Get the crawlable human profile",
+        "summary": "Get the canonical evidence-led routing profile",
         "responses": {
           "200": {
-            "description": "Human-readable static profile",
+            "description": "Human API profile",
             "content": {
-              "text/html": {
-                "schema": {"type": "string"}
+              "application/json": {
+                "schema": { "$ref": "/human-api.schema.json" }
               }
             }
           }
         }
+      }
+    },
+    "/human-api.schema.json": {
+      "get": {
+        "summary": "Get the JSON Schema for Human API v0.1",
+        "responses": { "200": { "description": "JSON Schema document" } }
+      }
+    },
+    "/evidence.json": {
+      "get": {
+        "summary": "Get the evidence and provenance ledger",
+        "responses": { "200": { "description": "Evidence ledger" } }
       }
     },
     "/ai-profile.json": {
       "get": {
-        "summary": "Get the compact machine-readable AI profile",
-        "responses": {
-          "200": {
-            "description": "Machine-readable profile",
-            "content": {
-              "application/json": {
-                "schema": {"type": "object", "additionalProperties": true}
-              }
-            }
-          }
-        }
+        "summary": "Get a compact AI-readable profile",
+        "responses": { "200": { "description": "Compact profile" } }
       }
     },
-    "/human-api.json": {
+    "/resume.json": {
       "get": {
-        "summary": "Get capability routing data",
-        "responses": {
-          "200": {
-            "description": "Human API routing profile",
-            "content": {
-              "application/json": {
-                "schema": {"type": "object", "additionalProperties": true}
-              }
-            }
-          }
-        }
+        "summary": "Get JSON Resume-compatible basics",
+        "responses": { "200": { "description": "JSON Resume-compatible profile" } }
       }
     },
     "/.well-known/human-api.json": {
       "get": {
-        "summary": "Discover the Human API",
-        "responses": {
-          "200": {
-            "description": "Discovery metadata",
-            "content": {
-              "application/json": {
-                "schema": {"type": "object", "additionalProperties": true}
-              }
-            }
-          }
-        }
+        "summary": "Discover Human API resources",
+        "description": "Experimental, unregistered discovery convention.",
+        "responses": { "200": { "description": "Discovery metadata" } }
+      }
+    },
+    "/profile.html": {
+      "get": {
+        "summary": "Get the crawlable English profile",
+        "responses": { "200": { "description": "Human-readable static profile" } }
       }
     },
     "/llms.txt": {
       "get": {
-        "summary": "Get curated LLM context index",
-        "responses": {
-          "200": {
-            "description": "Plain-text AI context index",
-            "content": {
-              "text/plain": {
-                "schema": {"type": "string"}
-              }
-            }
-          }
-        }
-      }
-    },
-    "/humans.txt": {
-      "get": {
-        "summary": "Get concise human-readable identity metadata",
-        "responses": {
-          "200": {
-            "description": "Human metadata",
-            "content": {
-              "text/plain": {
-                "schema": {"type": "string"}
-              }
-            }
-          }
-        }
-      }
-    },
-    "/amer-kallajo.vcf": {
-      "get": {
-        "summary": "Get Amer Kallajo's public professional contact card",
-        "responses": {
-          "200": {
-            "description": "vCard contact file",
-            "content": {
-              "text/vcard": {
-                "schema": {"type": "string"}
-              }
-            }
-          }
-        }
+        "summary": "Get the experimental LLM context index",
+        "responses": { "200": { "description": "Plain-text context index" } }
       }
     }
   }

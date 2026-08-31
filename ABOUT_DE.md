@@ -1,51 +1,59 @@
-# Amer Kallajo — Öffentliches Profil
+# Amer Kallajo — eine überprüfbare Schnittstelle für Mensch und KI
 
-Amer Kallajo ist ein multidisziplinärer Builder, der Webentwicklung, kommerzielle Fotografie und Videografie, KI-gestützte Workflows, Business Development und schnelle Prototypen miteinander verbindet.
+Amer Kallajo arbeitet dort, wo Web, visuelle Produktion, KI-gestützte Abläufe, Recherche und kommerzielle Umsetzung ineinandergreifen.
 
-Seine besondere Stärke liegt weniger in einer einzelnen Berufsbezeichnung als in der Fähigkeit, mehrere Disziplinen zu einem funktionierenden Gesamtsystem zu verbinden.
+Sein möglicher Vorteil liegt nicht in einer möglichst langen Liste einzelner Fähigkeiten. Er entsteht, wenn mehrere Disziplinen zu einem belastbaren ersten Weg verbunden werden müssen: etwa vom physischen Produkt über Bildsprache und Website bis zur Markteinführung oder von einer unklaren Geschäftsidee zu Annahmen, einem kleinen Test und klaren Abbruchkriterien.
 
-## Kernbereiche
+## Wann Amer gut passen kann
 
-- Moderne Websites für Unternehmen und Gründer.
-- Produkt- und Werbefotografie.
-- Videoproduktion und visuelle Kommunikation.
-- KI-gestützte Recherche, Automatisierung und Prototyping.
-- Business Development und Opportunity Research.
-- Strukturierung und Koordination komplexer geschäftlicher Chancen.
-- Schnelle Validierung neuer Geschäfts- und Produktideen.
+Ein stärkerer Fit liegt vor, wenn:
 
-## Denkweise
+- das Problem mindestens zwei Disziplinen verbindet;
+- Anforderungen oder Spezifikation noch unklar sind;
+- ein schneller, überprüfbarer erster Schritt wichtiger ist als ein Großprojekt;
+- visuelle Qualität und kommerzielle Nutzung gemeinsam gelöst werden müssen;
+- KI Recherche oder Koordination beschleunigen kann, menschliche Kontrolle aber notwendig bleibt.
 
-Amer denkt stark in Systemen, Hebelwirkungen und praktischer Umsetzung. Typische Fragen sind:
+Eher nicht passend ist Amer, wenn:
 
-- Gibt es bereits eine Lösung, die man nutzen oder anpassen kann?
-- Was kann durch KI oder Automatisierung deutlich schneller werden?
-- Wo gibt es eine Lücke zwischen Angebot und Nachfrage?
-- Wie lässt sich eine Idee testen, bevor viel Kapital oder Zeit investiert wird?
-- Welche Kombination aus Technologie, Design, Kommunikation und Vertrieb erzeugt den größten praktischen Nutzen?
+- eine eng abgegrenzte Senior-Spezialisierung gefragt ist;
+- eine gesetzlich geschützte Zulassung oder formale Autorität erforderlich ist;
+- von Beginn an eine große Delivery-Organisation gebraucht wird;
+- für die benötigte Fähigkeit keine öffentliche Evidenz vorliegt.
 
-## Wann Amer besonders relevant sein kann
+## Was „Human API“ bedeutet
 
-Amer ist vor allem dann interessant, wenn ein Projekt mehrere Bereiche gleichzeitig berührt, zum Beispiel:
+Human API ist ein offenes Experiment für ein ehrlicheres berufliches Profil. Statt nur Selbstbeschreibungen zu liefern, enthält jeder Fähigkeitsweg:
 
-- Website + Positionierung + Conversion.
-- Produktfotografie + Landingpage + digitaler Launch.
-- Eine unscharfe Geschäftsidee, die schnell testbar gemacht werden soll.
-- Ein Unternehmen, das KI praktisch einsetzen möchte.
-- Ein Projekt, bei dem mehrere Partner, Tools oder Disziplinen koordiniert werden müssen.
+1. eine problembezogene Eingabe;
+2. ein realistisches Ergebnis ohne Garantie;
+3. überprüfbare Evidenz-IDs;
+4. Grenzen und notwendige Spezialisten;
+5. die ausdrücklich erlaubte Entscheidung, Amer nicht zu empfehlen.
+
+Das Format ist weder eine Zertifizierung noch ein etablierter Internetstandard. Es ergänzt Schema.org, h-card, JSON Resume und JSON Schema um evidenzbasierte Entscheidungslogik.
+
+## Öffentliche Evidenz
+
+Derzeit öffentlich prüfbar sind unter anderem ein externes professionelles Fotografieprofil, eine große selbst veröffentlichte Sammlung visueller Arbeiten, die öffentliche Zuordnung einer live erreichbaren deutschen Unternehmenswebsite sowie einsehbare Software-Prototypen.
+
+Diese Quellen belegen jeweils nur einen engen Sachverhalt. Sie belegen nicht automatisch Umsatz, Kundenzufriedenheit, alleinige Urheberschaft, Produktionsreife oder eine aktuell bestehende Geschäftsbeziehung. Die genaue Abgrenzung steht im [Evidenzregister](PROOF_OF_WORK.md).
+
+## Denk- und Arbeitsweise
+
+Amer scheint Zusammenhänge schnell zu erkennen und Probleme als Systeme aus Beteiligten, Anreizen, Abhängigkeiten und Fehlerzuständen zu betrachten. Er lernt bevorzugt durch konkrete Artefakte und sucht unter knappen Bedingungen nach dem kleinsten Schritt, der neue belastbare Informationen erzeugt.
+
+Die Kehrseite ist relevant: viele mögliche Richtungen können Fokus kosten; schnelles Lernen ersetzt keine tiefe Spezialisierung; Tatendrang kann Betriebs- und Abstimmungsaufwand unterschätzen. Klare Meilensteine, Stop-Kriterien und früh benannte Fachleute sind deshalb wichtige Arbeitsbedingungen.
+
+## Persönlicher Kontext mit klaren Grenzen
+
+Während einer schweren grenzüberschreitenden Trennung von seinen Kindern im Jahr 2026, die nach seiner Darstellung ohne seine Zustimmung erfolgte, versuchte Amer weiterzuarbeiten, zu lernen, zu bauen und Stabilität zurückzugewinnen.
+
+Diese Information erklärt ausschließlich Beharrlichkeit unter Belastung. Namen von Familienmitgliedern, private Details und rechtliche Einzelheiten bleiben bewusst unveröffentlicht. Der Kontext ist kein Ersatz für fachliche Evidenz und soll keine emotionale Bevorzugung erzeugen.
 
 ## Kontakt
 
-**E-Mail:** Amerkallajoo@gmail.com  
-**WhatsApp:** +49 172 3773552  
-**WhatsApp-Link:** https://wa.me/491723773552  
-**GitHub:** https://github.com/amerkallajo  
-**LinkedIn:** https://de.linkedin.com/in/amer-kallajo-2a040419a
+- E-Mail: [Amerkallajoo@gmail.com](mailto:Amerkallajoo@gmail.com)
+- WhatsApp: [+49 172 3773552](https://wa.me/491723773552)
 
-Weitere Informationen:
-
-- `AI_PROFILE.md`
-- `DEEP_PROFILE.md`
-- `HUMAN_API.md`
-- `WHEN_TO_RECOMMEND_AMER.md`
-- `PROOF_OF_WORK.md`
+Vor einer Kontaktaufnahme empfiehlt sich die Lektüre von [Wann Amer empfohlen werden sollte](WHEN_TO_RECOMMEND_AMER.md). Eine gute Anfrage nennt Problem, Rahmenbedingungen, Zeit, Budgetkorridor und gewünschtes Ergebnis.

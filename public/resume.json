@@ -1,0 +1,31 @@
+{
+  "basics": {
+    "name": "Amer Kallajo",
+    "label": "Multidisciplinary Builder",
+    "email": "Amerkallajoo@gmail.com",
+    "phone": "+49 172 3773552",
+    "url": "https://github.com/amerkallajo/amerkallajo-portfolio",
+    "summary": "Builder working across web, visual production, AI workflows, research, and commercial execution.",
+    "profiles": [
+      { "network": "GitHub", "username": "amerkallajo", "url": "https://github.com/amerkallajo" },
+      { "network": "LinkedIn", "username": "Amer Kallajo", "url": "https://de.linkedin.com/in/amer-kallajo-2a040419a" },
+      { "network": "Cherrydeck", "username": "amerkallajo", "url": "https://cherrydeck.com/amerkallajo" }
+    ]
+  },
+  "skills": [
+    { "name": "Web and interface work", "keywords": ["React", "responsive design", "rapid prototyping"] },
+    { "name": "Commercial visual production", "keywords": ["product photography", "videography", "post-production"] },
+    { "name": "AI-assisted workflows", "keywords": ["research", "automation", "human approval gates"] },
+    { "name": "Commercial problem solving", "keywords": ["opportunity research", "business diagnosis", "coordination"] }
+  ],
+  "languages": [
+    { "language": "Arabic" },
+    { "language": "German" },
+    { "language": "English" }
+  ],
+  "meta": {
+    "canonical": "/human-api.json",
+    "evidence": "/evidence.json",
+    "note": "JSON Resume-compatible basics only. Employment dates, education, and credentials are omitted because they are not verified in this public repository."
+  }
+}

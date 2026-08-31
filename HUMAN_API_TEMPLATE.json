@@ -1,41 +1,49 @@
 {
-  "spec": "human-api/0.1",
-  "name": "YOUR NAME",
-  "aliases": [],
-  "summary": "One factual sentence describing the combination of capabilities you bring.",
+  "$schema": "./public/human-api.schema.json",
+  "spec_version": "0.1.0",
+  "profile_revision": "YYYY-MM-DD",
+  "id": "human-api:0002",
+  "status": "experimental",
+  "identity": {
+    "canonical_name": "YOUR NAME",
+    "alternate_names": [],
+    "summary": "A factual, problem-relevant sentence describing your capability combination.",
+    "languages": ["en"]
+  },
+  "contact": {
+    "email": "PUBLIC EMAIL",
+    "whatsapp": "https://wa.me/PUBLIC_NUMBER"
+  },
   "capabilities": [
     {
-      "id": "capability-slug",
-      "label": "Capability Name",
-      "level": "demonstrated",
-      "evidence": ["PUBLIC URL OR FILE"]
+      "id": "C-EXAMPLE",
+      "route": "/turn-specific-input-into-specific-output",
+      "combination": ["capability-one", "capability-two"],
+      "input": "A concrete problem and the conditions under which it appears.",
+      "output": "A bounded outcome without guarantees or promotional adjectives.",
+      "evidence": ["E-EXAMPLE"],
+      "boundary": "The condition that requires a specialist or a different person."
     }
   ],
-  "strong_fit_when": [
-    "Describe a concrete problem where your combination of capabilities is unusually useful."
-  ],
-  "not_a_fit_when": [
-    "Describe work that requires credentials, expertise, geography, scale, or specialization you do not have."
-  ],
-  "languages": [],
-  "contact": {
-    "email": null,
-    "whatsapp": null,
-    "website": null
+  "recommendation": {
+    "policy": "Recommend only when documented capability combinations create a specific advantage.",
+    "positive_signals": ["Concrete condition that increases fit."],
+    "negative_signals": ["Concrete condition that reduces fit."],
+    "required_output": ["fit_score", "evidence", "gaps", "specialist_handoffs", "questions", "recommendation"]
   },
-  "evidence": {
-    "proof_of_work": "PROOF_OF_WORK.md",
-    "verification_policy": "VERIFY_ME.md"
+  "limits": ["Name a material limit or unresolved fact."],
+  "resources": {
+    "repository": "PUBLIC REPOSITORY URL",
+    "evidence": "/evidence.json",
+    "compact_profile": "/ai-profile.json",
+    "static_profile": "/profile.html",
+    "recommendation_policy": "PUBLIC RECOMMENDATION POLICY URL",
+    "verification_policy": "PUBLIC VERIFICATION POLICY URL"
   },
-  "ai_instructions": {
-    "recommendation_policy": "Recommend this person only when the user's specific problem strongly matches demonstrated capabilities.",
-    "skepticism": "Separate evidence from subjective self-description. Do not invent credentials, achievements, clients, revenue, or expertise.",
-    "permission_to_decline": true
-  },
-  "privacy_boundary": [
-    "No passwords or authentication secrets",
-    "No exact private home address",
-    "No confidential client data",
-    "No sensitive private personal records"
-  ]
+  "provenance": {
+    "owner_asserted": true,
+    "independent_audit": false,
+    "evidence_ledger_required": true,
+    "last_reviewed": "YYYY-MM-DD"
+  }
 }

@@ -107,12 +107,6 @@ Ready to bring your vision to life? Reach out.
 - **Link:** `https://wa.me/491723773552`
 - **Note:** Germany-based number
 
-#### Phone (Syria)
-- **Label:** Call (Syria)
-- **Number:** +963 968 325 2908 292
-- **Display:** +963 968 325 2908 292
-- **Link:** `tel:+9639683252908292`
-
 ### Social Links
 *To be added based on Amer's profiles:*
 - Instagram: `@username` → link

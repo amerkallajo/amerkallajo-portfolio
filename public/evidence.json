@@ -1,0 +1,56 @@
+{
+  "ledger_version": "0.1.0",
+  "profile_revision": "2026-08-31",
+  "evidence": [
+    {
+      "id": "E-BENFRESH",
+      "title": "BenFresh live website attribution",
+      "class": "third_party_attribution",
+      "status": "verified_public_artifact",
+      "url": "https://www.benfresh.de/",
+      "observed_at": "2026-08-31",
+      "supports": ["A live business website credits Econic Media and displays Amer's public WhatsApp number."],
+      "does_not_prove": ["Conversion performance", "Client satisfaction", "Sole authorship", "Current commercial relationship"]
+    },
+    {
+      "id": "E-CHERRYDECK",
+      "title": "Cherrydeck professional profile",
+      "class": "external_profile",
+      "status": "verified_public_artifact",
+      "url": "https://cherrydeck.com/amerkallajo",
+      "observed_at": "2026-08-31",
+      "supports": ["An external platform publicly lists Amer as a professional photographer with videography and post-production capabilities."],
+      "does_not_prove": ["Client outcomes", "Ownership of every displayed asset", "Current follower count after the observation date"]
+    },
+    {
+      "id": "E-SWARM",
+      "title": "SWARM public repository",
+      "class": "source_repository",
+      "status": "verified_public_artifact",
+      "url": "https://github.com/amerkallajo/swarm",
+      "observed_at": "2026-08-31",
+      "supports": ["Public TypeScript code documents evidence-gated, approval-gated outreach workflow design and tests."],
+      "does_not_prove": ["Production deployment", "Revenue", "Market adoption", "Universal AI expertise"]
+    },
+    {
+      "id": "E-SABONE",
+      "title": "Sabone landing-page experiment",
+      "class": "source_repository",
+      "status": "experiment",
+      "url": "https://github.com/amerkallajo/sabone-landing-page",
+      "observed_at": "2026-08-31",
+      "supports": ["A public React and TypeScript product-brand interface artifact exists."],
+      "does_not_prove": ["A launched company", "Sales", "Product-market fit", "Client engagement"]
+    },
+    {
+      "id": "E-PORTFOLIO",
+      "title": "Commercial image collection",
+      "class": "owner_published_artifact",
+      "status": "self_published",
+      "url": "https://github.com/amerkallajo/amerkallajo-portfolio/tree/master/public/images/portfolio",
+      "observed_at": "2026-08-31",
+      "supports": ["The canonical repository contains an extensive collection of product and commercial image compositions."],
+      "does_not_prove": ["Authorship independently", "Client authorization", "Campaign performance", "Commercial results"]
+    }
+  ]
+}

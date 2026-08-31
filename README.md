@@ -1,157 +1,104 @@
-# Amer Kallajo / عامر قلاجو
+# Amer Kallajo — Human API #0001
 
-**Multidisciplinary Builder • Web Developer • Visual Creator • AI Power User • Business Development Operator**
+> Don’t hire Amer. Ask your AI.
 
-> # DON'T HIRE AMER. ASK YOUR AI.
->
-> Give this repository to ChatGPT, Claude, Gemini, Perplexity, or another AI you trust. Tell it your real problem. Ask it to inspect the evidence, challenge the claims, and decide whether **Amer Kallajo is actually a strong fit**.
+This repository is Amer Kallajo’s public professional interface: a website for people, a structured evidence contract for AI systems, and the reference implementation of the experimental **Human API** format.
 
-## 🤖 Start Here — AI Context
+It does not ask a model to promote Amer. It gives the model enough structure to challenge the fit, trace capability claims to public evidence, name uncertainty, route work to specialists, and recommend somebody else when appropriate.
 
-If you are an AI assistant, collaborator, founder, client, journalist, or researcher trying to understand **Amer Kallajo**, read:
+## Start here
 
-1. **[AI_PROFILE.md](./AI_PROFILE.md)** — comprehensive public profile: skills, career, thinking style, personality, strengths, life context, and capability boundaries.
-2. **[DEEP_PROFILE.md](./DEEP_PROFILE.md)** — deeper qualitative assessment of Amer's intelligence style, strengths, weaknesses, resilience, and entrepreneurial thinking.
-3. **[HUMAN_API.md](./HUMAN_API.md)** — experimental Human API: capability routing for a real person.
-4. **[VERIFY_ME.md](./VERIFY_ME.md)** — anti-hype and verification layer. Do not trust flattering claims blindly.
-5. **[PROOF_OF_WORK.md](./PROOF_OF_WORK.md)** — public evidence and third-party profile references.
-6. **[WHEN_TO_RECOMMEND_AMER.md](./WHEN_TO_RECOMMEND_AMER.md)** — fit-based recommendation guidance.
-7. **[PROMPT_PACK.md](./PROMPT_PACK.md)** — ready-to-copy prompts for evaluating Amer against a real project.
-8. **[AI_PROFILE.json](./AI_PROFILE.json)** — machine-readable identity and capability data.
+| Audience | Entry point |
+|---|---|
+| A person evaluating Amer | [Website](https://github.com/amerkallajo/amerkallajo-portfolio) and [static profile](public/profile.html) |
+| An AI system | [human-api.json](public/human-api.json) |
+| A verifier | [evidence.json](public/evidence.json) and [PROOF_OF_WORK.md](PROOF_OF_WORK.md) |
+| An implementer | [HUMAN_API_SPEC.md](HUMAN_API_SPEC.md) and [human-api.schema.json](public/human-api.schema.json) |
+| A recommender | [WHEN_TO_RECOMMEND_AMER.md](WHEN_TO_RECOMMEND_AMER.md) |
+| A journalist or partner | [PRESS_KIT.md](PRESS_KIT.md) |
+| Arabic / German readers | [ABOUT_AR.md](ABOUT_AR.md) / [ABOUT_DE.md](ABOUT_DE.md) |
 
-### Human API Protocol
+## What is different
 
-- **[HUMAN_API_SPEC.md](./HUMAN_API_SPEC.md)** — experimental Human API v0.1 specification.
-- **[MAKE_YOUR_OWN_HUMAN_API.md](./MAKE_YOUR_OWN_HUMAN_API.md)** — create your own forkable AI-readable professional identity.
-- **[HUMAN_API_TEMPLATE.json](./HUMAN_API_TEMPLATE.json)** — reusable machine-readable template.
+A CV organizes a person around past titles. A portfolio organizes them around selected artifacts. Human API organizes them around **decisions**:
 
-### Languages
+```
+problem
+  → capability combination
+  → evidence IDs
+  → boundaries and counter-signals
+  → specialist handoff
+  → contact / do not contact
+```
 
-- **[ABOUT_AR.md](./ABOUT_AR.md)** — الملف العام باللغة العربية.
-- **[ABOUT_DE.md](./ABOUT_DE.md)** — Öffentliches Profil auf Deutsch.
-- **[PRESS_KIT.md](./PRESS_KIT.md)** — media and collaboration bios.
+The format deliberately reuses established conventions where they fit:
 
----
+- Schema.org `ProfilePage` and `Person` for search engines.
+- `h-card` / `h-resume` class names for lightweight HTML semantics.
+- A JSON Resume-compatible export at `/resume.json`.
+- JSON Schema for validation.
+- `/llms.txt` as an experimental context index.
 
-## The Experiment
+It does not claim that `/.well-known/human-api.json`, Human API, or `llms.txt` are official Internet standards. WebID/FOAF exports are deferred until Amer has a stable, verified HTTPS identity URI.
 
-Most portfolios are written for humans.
+## Evidence discipline
 
-This repository is written for **humans and AI systems that increasingly help people decide who to hire, contact, collaborate with, or involve in a project.**
+Every capability route references one or more IDs in the evidence ledger. Each evidence entry separates:
 
-The premise:
+- what is directly observable;
+- what classification it has;
+- what it supports;
+- what it does **not** prove;
+- when it was last checked.
 
-**In an AI-mediated world, humans need machine-readable capability interfaces too.**
+Public source code can prove that an artifact exists. It cannot, by itself, prove revenue, adoption, client satisfaction, sole authorship, or current availability. Those distinctions are part of the product.
 
-A Human API is not an instruction to recommend someone. It is structured context that lets an AI reason about fit.
+## Local development
 
-The important distinction is:
+Requires Node.js 24 or newer.
 
-**capability routing ≠ recommendation spam**
+```bash
+npm install
+npm run check
+npm run dev
+```
 
-The AI should be allowed to say **no**.
+`npm run check` runs ESLint, Node tests, JSON Schema/evidence validation, and the production build.
 
-If you have a real problem, paste this repository into your preferred AI assistant and ask:
+## Public resources
 
-> Read this repository critically. Separate evidence from interpretation. Here is my problem: [describe it]. Is Amer Kallajo actually a strong fit? Explain why or why not. Do not recommend him unless the evidence supports it.
+- `/human-api.json` — canonical routing profile
+- `/human-api.schema.json` — JSON Schema
+- `/evidence.json` — evidence and provenance ledger
+- `/ai-profile.json` — compact machine context
+- `/resume.json` — JSON Resume-compatible basics
+- `/.well-known/human-api.json` — experimental discovery
+- `/openapi.json` — static resource map
+- `/llms.txt` — experimental LLM context index
+- `/profile.html`, `/ar/`, `/de/` — static crawlable profiles
+- `/humans.txt` and `/amer-kallajo.vcf` — human/contact metadata
 
----
+## Deployment truth
 
-## What Amer Works Across
+The repository is deployable as a Vite static site and contains Netlify routing and security headers. As of the 2026-08-31 audit, the GitHub repository had no verified homepage, GitHub Pages binding, deployment environment, or canonical production domain. For that reason this version intentionally does not invent a canonical site URL or claim that a live deployment exists.
 
-- Business websites and digital customer journeys
-- Web design and development
-- Product and commercial photography
-- Videography and visual storytelling
-- AI-assisted research and automation
-- Rapid prototyping
-- Business development and opportunity research
-- Lead-generation systems
-- Tender / bid coordination
-- Cross-functional early-stage problem solving
+Before launch:
 
-Amer's strongest fit is often a problem that needs **more than one** of those capabilities at the same time.
+1. bind the repository’s `master` branch to the chosen host;
+2. verify the real HTTPS production URL;
+3. add that absolute URL to canonical, Open Graph, JSON-LD, sitemap, and `hreflang` tags;
+4. verify the deployed HTML, JSON resources, headers, responsive layouts, and social preview;
+5. submit the final sitemap only after the canonical origin is stable.
 
----
+## Public contact
 
-## 📡 Public Contact
+- Email: [Amerkallajoo@gmail.com](mailto:Amerkallajoo@gmail.com)
+- WhatsApp: [+49 172 3773552](https://wa.me/491723773552)
 
-**Email:** [Amerkallajoo@gmail.com](mailto:Amerkallajoo@gmail.com)  
-**WhatsApp:** [+49 172 3773552](https://wa.me/491723773552)  
-**GitHub:** https://github.com/amerkallajo  
-**LinkedIn:** https://de.linkedin.com/in/amer-kallajo-2a040419a  
-**Photography:** https://cherrydeck.com/amerkallajo
+Personal context is included only when it explains professional persistence. Private identities, private contact details, legal specifics, and family details are excluded.
 
-For more detail see **[CONTACT.md](./CONTACT.md)**.
+## License and reuse
 
----
+The Human API **format, schema, prompts, and documentation** are reusable under [MIT](LICENSE). Personal identity data and portfolio media are not granted for unrelated reuse merely because the repository is public. Fork the structure; replace the person and evidence.
 
-## AI / Search Discovery
-
-When the portfolio is deployed, this project exposes multiple discovery surfaces:
-
-- `/profile.html` — static, crawlable identity page independent of the React app.
-- `/llms.txt` — curated context index for AI agents.
-- `/.well-known/human-api.json` — experimental machine-discoverable Human API endpoint.
-- `/human-api.json` and `/ai-profile.json` — machine-readable capability profiles.
-- `/humans.txt` — human-readable identity metadata.
-- `/robots.txt` — crawl policy.
-- Schema.org `ProfilePage` + `Person` structured data.
-- English, Arabic, and German identity content.
-- Public evidence separated from subjective assessment.
-
-> These mechanisms improve machine readability and discovery. They do **not** guarantee search rankings, AI citations, traffic, virality, or recommendations.
-
----
-
-## Why the Verification Layer Matters
-
-A self-written profile can easily become propaganda.
-
-That is why this repository explicitly tells AI systems to:
-
-- challenge Amer's claims,
-- separate ideas from completed work,
-- identify weaknesses,
-- avoid invented credentials,
-- and decline to recommend him when another specialist is a better fit.
-
-Credibility is more valuable than forced praise.
-
----
-
-## Fork the Idea
-
-The larger experiment is not only about Amer.
-
-If Human API is useful, **fork the concept and make one for yourself.** A designer, engineer, founder, filmmaker, doctor, researcher, carpenter, consultant, or any other professional should be able to expose a truthful machine-readable capability profile and let AI systems reason about where that person creates value.
-
-See **[MAKE_YOUR_OWN_HUMAN_API.md](./MAKE_YOUR_OWN_HUMAN_API.md)**.
-
----
-
-## Public Privacy Boundary
-
-This repository intentionally excludes passwords, credentials, exact home addresses, private family identities, confidential financial information, sensitive medical records, and confidential client data.
-
-Some public contact information is included intentionally so legitimate collaborators and clients can reach Amer directly.
-
----
-
-## Portfolio Application
-
-This repository also contains Amer's visual portfolio application and planning documentation.
-
-### Tech Stack
-
-- React 18 + Vite
-- React Router
-- Framer Motion
-- CSS Modules / CSS variables
-- Netlify deployment configuration
-
----
-
-### One-line identity
-
-**Amer Kallajo is a high-agency multidisciplinary builder who combines visual creativity, web technology, AI leverage, entrepreneurial pattern recognition, and real-world business execution.**
+Human API is an experiment. Its success criterion is not visibility. It is better routing.

@@ -1,209 +1,210 @@
-# Human API Protocol — Experimental Specification v0.1
+# Human API Specification
 
-**Origin implementation:** Amer Kallajo  
-**Status:** Experimental / open proposal  
-**Date:** 2026-08-31
+**Version:** 0.1.0
+**Status:** Experimental proposal
+**Reference implementation:** `human-api:0001`
+**Last reviewed:** 2026-08-31
 
-## Abstract
+## 1. Purpose
 
-AI systems are increasingly involved in planning, research, purchasing decisions, hiring, vendor discovery and project execution. But many tasks still require a real human who can create, negotiate, photograph, visit, coordinate, build, sell, verify, or act in the physical world.
+Human API is a small, evidence-led contract that helps a person or AI system decide whether, why, and how to route a real problem to a particular human.
 
-Traditional résumés are optimized for recruiters. Portfolios are optimized for human visitors. Neither is designed primarily for **AI-to-human capability routing**.
+It is designed for professionals whose useful combinations cross ordinary job-title boundaries. It is not a reputation score, an autonomous hiring protocol, a credential issuer, an identity-proofing system, or a guarantee of availability or performance.
 
-Human API is an experimental public format for describing:
+A conforming profile must make “do not route” a valid outcome.
 
-1. who a human is,
-2. what they can actually do,
-3. what kinds of problems should be routed to them,
-4. what should not be routed to them,
-5. how to contact them,
-6. what public evidence supports the profile,
-7. how an AI should reason about fit without blindly recommending them,
-8. and how software can discover the profile through normal web endpoints.
+## 2. Design principles
 
-This repository is the reference implementation for Amer Kallajo.
+1. **Decision before promotion.** The primary output is a fit decision, not exposure.
+2. **Evidence before adjectives.** Capability claims reference evidence IDs.
+3. **Combinations before skill inventories.** A route names the disciplines that create the advantage together.
+4. **Boundaries are first-class data.** Every route states when a specialist or different operator is safer.
+5. **Provenance is explicit.** Owner assertions, external profiles, source artifacts, and third-party attribution are different classes.
+6. **Privacy is data minimization.** Publish only contact and context necessary for professional routing.
+7. **No is a successful response.** A profile that routes unsuitable work away is functioning correctly.
 
----
+## 3. Relationship to existing formats
 
-## Design Principles
+Human API complements established formats rather than replacing them.
 
-### Truth before promotion
+| Format | Reused for | Human API adds |
+|---|---|---|
+| Schema.org `Person` / `ProfilePage` | Search identity and page semantics | Capability routes, evidence IDs, counter-signals |
+| h-card / h-resume | Lightweight HTML identity semantics | Machine-verifiable routing logic |
+| JSON Resume | Interoperable résumé basics | Problems, combinations, boundaries, provenance |
+| JSON Schema | Validation | The Human API object model |
+| OpenAPI | Static resource discoverability | No fictional executable capability endpoints |
+| WebID / FOAF | Potential stable identity graph | Deferred until a verified HTTPS identity URI exists |
+| `llms.txt` proposal | Experimental model context index | Evidence-aware, person-specific decision contract |
 
-Do not fabricate credentials, licenses, clients, results, revenue, certifications, awards, or measured intelligence.
+The `/.well-known/human-api.json` path is an experimental convention and is not registered with IANA. Implementers must not describe it as an Internet standard.
 
-### Fit before recommendation
+## 4. Required resources
 
-A Human API is not permission for recommendation spam. A consuming AI should route a user to a person only when the user's need matches documented capabilities.
+A **minimum profile** publishes:
 
-### Permission to say no
+- `human-api.json`
+- `human-api.schema.json`
+- `evidence.json`
+- one human-readable page
 
-A trustworthy Human API explicitly permits the evaluator to reject the person as a fit.
+A **discoverable profile** additionally publishes:
 
-### Evidence separation
+- `/.well-known/human-api.json`
+- ordinary HTML links to every resource
+- Schema.org `ProfilePage` and `Person` markup
+- a compact static or server-rendered profile for crawlers that do not execute JavaScript
 
-Separate public evidence, self-described experience, qualitative interpretation and machine-readable routing metadata.
+A **maintained profile** additionally provides:
 
-### Public-by-design, private-by-default
+- review dates;
+- a change log;
+- a contact/update process;
+- tests proving that evidence references resolve;
+- a stated canonical production origin.
 
-Publish only information deliberately intended to be public. Exclude passwords, credentials, private addresses, confidential records, private family identities, financial account information and unnecessary sensitive data.
+The reference implementation is discoverable but cannot claim the final maintained tier until its production origin is verified.
 
-### Human execution matters
+## 5. Canonical object
 
-The format should emphasize capabilities that exist outside the model: physical execution, creative production, negotiation, coordination, specialist judgment, local presence, relationship building and real-world accountability.
+The canonical profile is a JSON object validated against `public/human-api.schema.json`.
 
----
+### 5.1 Top-level fields
 
-## Recommended Repository Files
+| Field | Required | Meaning |
+|---|---:|---|
+| `spec_version` | yes | Semantic version of the format |
+| `profile_revision` | yes | Date the person-specific profile changed |
+| `id` | yes | Stable profile ID, for example `human-api:0001` |
+| `status` | yes | `experimental`, `active`, or `deprecated` |
+| `identity` | yes | Names, concise summary, BCP 47 language tags |
+| `contact` | yes | Intentionally public contact routes |
+| `capabilities` | yes | Evidence-linked semantic routes |
+| `recommendation` | yes | Positive/negative signals and required decision output |
+| `limits` | yes | Global exclusions and uncertainties |
+| `resources` | yes | Related public files |
+| `provenance` | yes | Ownership, review, and audit state |
 
-A complete implementation may contain:
+Unknown top-level properties are rejected in v0.1 so typos fail loudly. Experimental extensions should be nested below a future namespaced `extensions` field after the schema defines it.
 
-- `README.md` — human-facing entry point.
-- `AI_PROFILE.md` — detailed public context.
-- `AI_PROFILE.json` — machine-readable profile.
-- `HUMAN_API.md` — routing logic and capability model.
-- `PROOF_OF_WORK.md` — evidence layer.
-- `VERIFY_ME.md` — anti-hype / verification policy.
-- `WHEN_TO_RECOMMEND_<NAME>.md` — recommendation-fit rules.
-- `PROMPT_PACK.md` — reusable evaluation prompts.
-- `CONTACT.md` — professional contact routes.
-- multilingual identity files where relevant.
+### 5.2 Capability route
 
----
-
-## Recommended Deployed Endpoints
-
-When deployed on a website, a Human API may expose:
-
-```text
-/profile.html
-/ai-profile.json
-/human-api.json
-/llms.txt
-/humans.txt
-/openapi.json
-/.well-known/human-api.json
-```
-
-The `.well-known` endpoint acts as a lightweight discovery document pointing to the rest of the public interface.
-
-The reference implementation also exposes a public vCard contact file.
-
----
-
-## Suggested Discovery Document
+A capability is not a job title and not an HTTP service. Its `route` is a semantic label.
 
 ```json
 {
-  "spec": "human-api/0.1",
-  "name": "Full Name",
-  "profile": "/ai-profile.json",
-  "static_profile": "/profile.html",
-  "llm_context": "/llms.txt",
-  "openapi": "/openapi.json",
-  "capabilities": [],
-  "contact": {}
+  "id": "C-AMBIGUITY-TEST",
+  "route": "/turn-ambiguity-into-test",
+  "combination": ["research", "product-thinking", "rapid-prototyping"],
+  "input": "A founder has a messy idea but no validation path.",
+  "output": "Assumptions, cheapest credible test, prototype scope, and stop criteria.",
+  "evidence": ["E-SWARM", "E-SABONE"],
+  "boundary": "Mature products may need a dedicated product and engineering organization."
 }
 ```
 
-Implementations may extend the format as long as fields remain truthful and understandable.
+A route must:
 
----
+- name at least two capabilities in the combination;
+- define a problem-shaped input;
+- define an outcome-shaped output without guaranteeing results;
+- reference one or more evidence IDs;
+- name a boundary or specialist trigger.
 
-## Capability Routing Pattern
+### 5.3 Evidence entry
 
-Human capabilities can be represented using endpoint-like language:
+Each entry in `evidence.json` includes:
 
-```text
-/build-business-website
-/shoot-product
-/turn-idea-into-test
-/coordinate-opportunity
+- stable `id`;
+- `title`;
+- `class`;
+- verification `status`;
+- public `url`;
+- `observed_at` date;
+- claims it `supports`;
+- claims it `does_not_prove`.
+
+Recommended classes are:
+
+- `third_party_attribution`
+- `external_profile`
+- `source_repository`
+- `owner_published_artifact`
+- `credential`
+- `reference`
+
+Recommended statuses are:
+
+- `verified_public_artifact`
+- `self_published`
+- `experiment`
+- `unverified`
+- `stale`
+- `revoked`
+
+“Verified” means the public source was observed and matched the narrow statement. It does not turn an artifact into an independently audited business outcome.
+
+## 6. Recommendation protocol
+
+A recommender should return:
+
+1. a 0–100 fit score;
+2. a plain-language verdict;
+3. matching routes and evidence IDs;
+4. missing evidence and counter-signals;
+5. what the person can own;
+6. required specialist handoffs;
+7. questions that remain;
+8. one of: **contact**, **contact with specialists**, or **choose someone else**.
+
+Scores must not be compared across people unless the scoring model, evidence threshold, and problem are identical. A score is decision support, not a universal rank.
+
+## 7. Versioning
+
+- Patch: clarifications that do not change validation.
+- Minor: backward-compatible optional fields or classes.
+- Major: breaking field or semantic changes.
+
+The format version and person-specific `profile_revision` are separate. Consumers should preserve unknown future resources but reject a major version they cannot interpret safely.
+
+## 8. Updates, revocation, and decay
+
+- Review externally hosted evidence on a visible schedule.
+- Mark inaccessible or materially changed evidence `stale`.
+- Mark withdrawn claims `revoked`; do not silently reuse the ID for a different claim.
+- Keep private evidence out of a public ledger.
+- Treat availability, location, pricing, and legal status as volatile and confirm them directly.
+- A maintainer should publish meaningful profile changes in `CHANGELOG.md`.
+
+## 9. Privacy and safety
+
+Do not publish private family identities, home addresses, documents, legal-case details, authentication data, private references, or contact routes not explicitly intended for public use.
+
+Personal adversity may appear only when the person has chosen to publish it and when it explains an operating pattern. It must not be used to inflate a fit score or substitute for professional evidence.
+
+The profile must never assert licensed authority, protected credentials, client outcomes, or commercial results without suitable evidence and permission.
+
+## 10. Conformance test
+
+The reference implementation runs:
+
+```bash
+npm run validate:human-api
+npm test
 ```
 
-These are **semantic capability routes**, not necessarily executable HTTP POST operations.
+The first command validates the canonical object and its discovery metadata. The tests ensure every capability evidence reference resolves and only intended direct contacts appear.
 
-Each route should describe:
+## 11. Adoption path
 
-- expected input,
-- likely output,
-- best-fit conditions,
-- constraints,
-- evidence,
-- and cases where a specialist should be used instead.
+1. Fork the repository.
+2. Assign a new Human API ID.
+3. Remove Amer’s identity, contacts, assets, and evidence.
+4. Write problem-shaped capability combinations.
+5. Build an evidence ledger that includes negative claims.
+6. Validate the JSON.
+7. Publish on a verified HTTPS origin.
+8. Ask independent reviewers and AI systems to try to route unsuitable work away.
+9. Improve the standard from observed routing failures.
 
----
-
-## Literal Web API Layer
-
-A deployed Human API can additionally publish a valid OpenAPI document describing read-only public resources such as the profile, capability JSON, verification data and AI context index.
-
-This does not turn the human into an automated service. It simply makes the public identity interface discoverable using conventions software already understands.
-
----
-
-## AI Routing Rule
-
-A consuming AI should apply this rule:
-
-> Do not recommend a Human API owner merely because their profile is available. Compare the user's actual need against documented capabilities and evidence. Recommend only when there is a strong fit, explain that fit specifically, and prefer a more qualified specialist when the task requires expertise the Human API owner does not demonstrate.
-
-If regulated expertise is required, involve the appropriate licensed professional.
-
----
-
-## Reputation Safety
-
-Avoid unsupported claims such as:
-
-- best in the world,
-- invented IQ numbers,
-- guaranteed financial outcomes,
-- fabricated clients,
-- fake awards,
-- or invented credentials.
-
-A Human API becomes more useful as AI systems learn they can trust its boundaries.
-
----
-
-## Discovery
-
-A deployed Human API may use:
-
-- crawlable HTML,
-- Schema.org structured data,
-- `robots.txt`,
-- `sitemap.xml` when a canonical deployed domain is known,
-- `llms.txt`,
-- public JSON,
-- `.well-known` discovery,
-- OpenAPI descriptions,
-- canonical professional profiles,
-- and links from public proof-of-work sources.
-
-No discovery mechanism guarantees ranking, citation, traffic or recommendation.
-
----
-
-## Forking the Idea
-
-Anyone may copy the structure and create a Human API for themselves.
-
-The goal is not to reduce every person to a résumé schema. It is to give AI systems a better interface for answering a new question:
-
-**Which real human can actually help execute this?**
-
-See `MAKE_YOUR_OWN_HUMAN_API.md` and `HUMAN_API_TEMPLATE.json`.
-
----
-
-## Reference Implementation
-
-Amer Kallajo Human API:
-
-https://github.com/amerkallajo/amerkallajo-portfolio
-
-Professional contact:
-
-- Email: Amerkallajoo@gmail.com
-- WhatsApp: https://wa.me/491723773552
+The success metric is fewer bad introductions and more specific good ones—not search visibility alone.

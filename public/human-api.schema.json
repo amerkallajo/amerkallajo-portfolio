@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/amerkallajo/amerkallajo-portfolio/master/public/human-api.schema.json",
+  "title": "Human API profile",
+  "description": "Experimental evidence-led routing contract for a person. Version 0.1.0.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["spec_version", "profile_revision", "id", "status", "identity", "contact", "capabilities", "recommendation", "limits", "resources", "provenance"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "spec_version": { "type": "string", "pattern": "^0\\.1\\.[0-9]+$" },
+    "profile_revision": { "type": "string", "format": "date" },
+    "id": { "type": "string", "pattern": "^human-api:[0-9]{4,}$" },
+    "status": { "enum": ["experimental", "active", "deprecated"] },
+    "identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["canonical_name", "alternate_names", "summary", "languages"],
+      "properties": {
+        "canonical_name": { "type": "string", "minLength": 1 },
+        "alternate_names": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "summary": { "type": "string", "minLength": 40 },
+        "languages": { "type": "array", "items": { "type": "string", "pattern": "^[a-z]{2}(-[A-Z]{2})?$" }, "minItems": 1, "uniqueItems": true }
+      }
+    },
+    "contact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["email", "whatsapp"],
+      "properties": {
+        "email": { "type": "string", "format": "email" },
+        "whatsapp": { "type": "string", "format": "uri", "pattern": "^https://wa\\.me/" }
+      }
+    },
+    "capabilities": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/capability" } },
+    "recommendation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["policy", "positive_signals", "negative_signals", "required_output"],
+      "properties": {
+        "policy": { "type": "string", "minLength": 40 },
+        "positive_signals": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "negative_signals": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "required_output": { "type": "array", "items": { "type": "string" }, "minItems": 3, "uniqueItems": true }
+      }
+    },
+    "limits": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "resources": {
+      "type": "object",
+      "additionalProperties": { "type": "string" },
+      "required": ["repository", "evidence", "compact_profile", "static_profile", "recommendation_policy", "verification_policy"]
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["owner_asserted", "independent_audit", "evidence_ledger_required", "last_reviewed"],
+      "properties": {
+        "owner_asserted": { "type": "boolean" },
+        "independent_audit": { "type": "boolean" },
+        "evidence_ledger_required": { "type": "boolean" },
+        "last_reviewed": { "type": "string", "format": "date" }
+      }
+    }
+  },
+  "$defs": {
+    "capability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "route", "combination", "input", "output", "evidence", "boundary"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^C-[A-Z0-9-]+$" },
+        "route": { "type": "string", "pattern": "^/[a-z0-9-]+$" },
+        "combination": { "type": "array", "items": { "type": "string" }, "minItems": 2, "uniqueItems": true },
+        "input": { "type": "string", "minLength": 20 },
+        "output": { "type": "string", "minLength": 20 },
+        "evidence": { "type": "array", "items": { "type": "string", "pattern": "^E-[A-Z0-9-]+$" }, "minItems": 1, "uniqueItems": true },
+        "boundary": { "type": "string", "minLength": 20 }
+      }
+    }
+  }
+}
