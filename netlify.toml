@@ -1,23 +1,20 @@
 # Netlify configuration for Amer Kallajo Portfolio
 
 [build]
-  # Build command
   command = "npm run build"
-  # Directory to publish
   publish = "dist"
-  # Node version
   node_bundler = "esbuild"
 
 [build.environment]
   NODE_VERSION = "18"
 
-# Redirects for SPA (Single Page Application) routing
+# Redirects for SPA routing
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
 
-# Headers for security and performance
+# Global headers
 [[headers]]
   for = "/*"
   [headers.values]
@@ -25,6 +22,14 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+    Link = "</llms.txt>; rel=\"describedby\"; type=\"text/markdown\""
+
+# AI discovery document
+[[headers]]
+  for = "/llms.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"
+    Cache-Control = "public, max-age=3600"
 
 # Cache static assets
 [[headers]]
