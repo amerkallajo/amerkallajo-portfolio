@@ -46,11 +46,14 @@ function ProductPage() {
         <GalleryGrid items={items} onItemClick={handleItemClick} />
       </div>
 
-      <Lightbox 
-        images={items} 
-        selectedIndex={selectedIndex} 
-        onClose={() => setSelectedIndex(-1)} 
-      />
+      {selectedIndex >= 0 && (
+        <Lightbox
+          key={selectedIndex}
+          images={items}
+          selectedIndex={selectedIndex}
+          onClose={() => setSelectedIndex(-1)}
+        />
+      )}
     </motion.main>
   );
 }

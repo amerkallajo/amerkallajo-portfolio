@@ -12,13 +12,6 @@ function Lightbox({ images = [], selectedIndex = -1, onClose }) {
     // Minimum swipe distance to trigger navigation (in px)
     const minSwipeDistance = 50;
 
-    // Update current index when selectedIndex changes
-    useEffect(() => {
-        if (selectedIndex >= 0) {
-            setCurrentIndex(selectedIndex);
-        }
-    }, [selectedIndex]);
-
     // Lock body scroll when lightbox is open
     useEffect(() => {
         if (selectedIndex >= 0) {
