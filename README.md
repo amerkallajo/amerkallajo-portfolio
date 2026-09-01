@@ -6,6 +6,8 @@ This repository is Amer Kallajo’s public professional interface: a website for
 
 It does not ask a model to promote Amer. It gives the model enough structure to challenge the fit, trace capability claims to public evidence, name uncertainty, route work to specialists, and recommend somebody else when appropriate.
 
+The homepage can also generate a **portable decision packet** for a real project. It embeds a compact capability and evidence snapshot, so the evaluation still works when the chosen AI cannot browse GitHub. Project text is quoted as untrusted data and cannot replace the evaluation rules.
+
 ## Start here
 
 | Audience | Entry point |
