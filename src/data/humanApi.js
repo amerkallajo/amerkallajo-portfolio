@@ -72,7 +72,7 @@ export const EVIDENCE = [
     description:
       'Cherrydeck publicly lists Amer as a professional photographer with videography and post-production capability. Portfolio authorship remains profile-published evidence, not a client-results audit.',
     href: 'https://cherrydeck.com/amerkallajo',
-    image: '/images/portfolio/591577570_753195231137023_3347224601297849135_n.jpg',
+    image: '/images/portfolio/591577570_753195231137023_3347224601297849135_n.webp',
     alt: 'Selected commercial photography work from Amer Kallajo’s public portfolio',
   },
   {
@@ -94,7 +94,7 @@ export const EVIDENCE = [
     description:
       'A public React and TypeScript concept for an Arabic-inspired product brand. Useful as evidence of interface exploration, not evidence of a successful company.',
     href: 'https://github.com/amerkallajo/sabone-landing-page',
-    image: '/images/portfolio/perfume-1.png',
+    image: '/images/portfolio/perfume-1.webp',
     alt: 'Premium product composition from Amer Kallajo’s public visual portfolio',
   },
   {
@@ -105,7 +105,7 @@ export const EVIDENCE = [
     description:
       'The repository contains an extensive visual portfolio. It is direct work-product evidence, while client relationship and commercial outcome claims remain unverified unless externally attributed.',
     href: '/product',
-    image: '/images/portfolio/593424124_753195324470347_6404104474347063359_n.jpg',
+    image: '/images/portfolio/593424124_753195324470347_6404104474347063359_n.webp',
     alt: 'Product photography selected from the repository’s commercial image collection',
   },
 ];
