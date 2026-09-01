@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Made the project-fit decision packet self-contained for AI assistants without web access.
+- Embedded capability routes, evidence classifications, fit signals, and specialist boundaries in the packet.
+- Quoted and length-limited project input so it is treated as data rather than evaluation instructions.
+
 ## 0.1.0 — 2026-08-31
 
 - Reframed the site from a visual-only portfolio into Human API #0001.

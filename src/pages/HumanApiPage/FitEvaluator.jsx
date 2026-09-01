@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { buildEvaluationPrompt } from '../../utils/evaluationPrompt.js';
+import { buildEvaluationPrompt, MAX_PROJECT_LENGTH } from '../../utils/evaluationPrompt.js';
 
 const AI_LABELS = ['ChatGPT', 'Claude', 'Gemini', 'Perplexity'];
 
@@ -27,7 +27,7 @@ function FitEvaluator() {
 
   const generate = () => {
     setPrompt(buildEvaluationPrompt(problem));
-    setStatus('Decision packet generated. Review it before copying.');
+    setStatus('Portable decision packet generated. Review it before copying.');
   };
 
   const copy = async () => {
@@ -56,13 +56,22 @@ function FitEvaluator() {
 
       <div className="evaluator-panel">
         <label htmlFor="project-problem">Your actual problem</label>
+        <p className="evaluator-help" id="project-problem-help">
+          Included as quoted data—not instructions. The finished packet works without web access.
+        </p>
         <textarea
           id="project-problem"
           value={problem}
           onChange={(event) => setProblem(event.target.value)}
           placeholder="Example: I need product photography, a premium landing page, and a fast way to validate demand before a full launch."
           rows="6"
+          maxLength={MAX_PROJECT_LENGTH}
+          aria-describedby="project-problem-help project-problem-count"
         />
+        <div className="evaluator-meta">
+          <span>Self-contained · evidence-linked</span>
+          <span id="project-problem-count">{problem.length.toLocaleString()} / {MAX_PROJECT_LENGTH.toLocaleString()}</span>
+        </div>
         <div className="evaluator-actions">
           <button className="button button--ink" type="button" onClick={generate}>
             Build decision packet
@@ -76,7 +85,7 @@ function FitEvaluator() {
         {prompt && (
           <div className="prompt-output">
             <div className="prompt-output__bar">
-              <span>DECISION_PACKET.txt</span>
+              <span>PORTABLE_DECISION_PACKET.txt</span>
               <span>{prompt.length} characters</span>
             </div>
             <pre>{prompt}</pre>

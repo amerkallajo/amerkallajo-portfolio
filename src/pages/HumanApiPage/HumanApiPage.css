@@ -386,12 +386,18 @@
 
 .evaluator-panel label {
   display: block;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.35rem;
   font-family: var(--mono);
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+}
+
+.evaluator-help {
+  margin: 0 0 0.9rem;
+  color: var(--muted-ink);
+  font-size: 0.84rem;
 }
 
 .evaluator-panel textarea {
@@ -411,6 +417,19 @@
 .evaluator-panel textarea:focus {
   outline: 3px solid var(--signal);
   outline-offset: 2px;
+}
+
+.evaluator-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  margin-top: 0.55rem;
+  color: var(--muted-ink);
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
 }
 
 .button--ink {
